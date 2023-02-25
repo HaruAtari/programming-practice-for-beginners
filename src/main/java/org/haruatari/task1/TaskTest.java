@@ -11,14 +11,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TaskTest {
     @DisplayName("sum()")
-    @ParameterizedTest(name = "{0} + {1} = {2}")
+    @ParameterizedTest(name = "sum({0}, {1}) is {2}")
     @MethodSource("sumProvider")
     public void sum(int x, int y, int expected) {
         assertEquals(expected, new Task().sum(x, y), "The sum() method doesn't work properly");
     }
 
     @DisplayName("sub()")
-    @ParameterizedTest(name = "{0} - {1} = {2}")
+    @ParameterizedTest(name = "sub({0}, {1}) is {2}")
     @MethodSource("subProvider")
     public void sub(int x, int y, int expected) {
         assertEquals(expected, new Task().sum(x, y), "The sub() method doesn't work properly");
