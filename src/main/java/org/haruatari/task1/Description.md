@@ -1,3 +1,5 @@
+# Adding and subtracting of two integers
+
 You should implement the next methods:
 
 - The `Task.sum()` method which takes two integers and returns their sum.
