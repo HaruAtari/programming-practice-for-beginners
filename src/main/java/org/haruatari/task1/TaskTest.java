@@ -1,5 +1,6 @@
 package org.haruatari.task1;
 
+import org.haruatari.BaseTest;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -9,19 +10,21 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class TaskTest {
+public class TaskTest extends BaseTest {
     @DisplayName("sum()")
-    @ParameterizedTest(name = "sum({0}, {1}) is {2}")
+    @ParameterizedTest(name = "sum( {0}, {1} )")
     @MethodSource("sumProvider")
     public void sum(int x, int y, int expected) {
-        assertEquals(expected, new Task().sum(x, y), "The sum() method doesn't work properly");
+        var actual = new Task().sum(x, y);
+        assertEquals(expected, actual, errorMessage(String.valueOf(expected), String.valueOf(actual)));
     }
 
     @DisplayName("sub()")
-    @ParameterizedTest(name = "sub({0}, {1}) is {2}")
+    @ParameterizedTest(name = "sub( {0}, {1} )")
     @MethodSource("subProvider")
     public void sub(int x, int y, int expected) {
-        assertEquals(expected, new Task().sum(x, y), "The sub() method doesn't work properly");
+        var actual = new Task().sub(x, y);
+        assertEquals(expected, actual, errorMessage(String.valueOf(expected), String.valueOf(actual)));
     }
 
     private static Stream<Arguments> sumProvider() {
@@ -35,8 +38,8 @@ public class TaskTest {
     private static Stream<Arguments> subProvider() {
         return Stream.of(
                 Arguments.of(0, 0, 0),
-                Arguments.of(3,2,1),
-                Arguments.of(-3,-2,-1)
+                Arguments.of(3, 2, 1),
+                Arguments.of(-3, -2, -1)
         );
     }
 }

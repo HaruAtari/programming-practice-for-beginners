@@ -1,5 +1,6 @@
 package org.haruatari.task2;
 
+import org.haruatari.BaseTest;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -9,19 +10,21 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class TaskTest {
+public class TaskTest extends BaseTest {
     @DisplayName("findFirst()")
-    @ParameterizedTest(name = "findFirst({0}, {1}) is {2}")
+    @ParameterizedTest(name = "findFirst( {0}, {1} )")
     @MethodSource("findFirstProvider")
     public void findFirst(int[] list, int value, int expected) {
-        assertEquals(expected, new Task().findFirst(list, value), "The findFirst() method doesn't work properly");
+        var actual = new Task().findFirst(list, value);
+        assertEquals(expected, actual, errorMessage(String.valueOf(expected), String.valueOf(actual)));
     }
 
     @DisplayName("findLast()")
-    @ParameterizedTest(name = "findLast({0}, {1}) is {2}")
+    @ParameterizedTest(name = "findLast( {0}, {1} )")
     @MethodSource("findLastProvider")
     public void findLast(int[] list, int value, int expected) {
-        assertEquals(expected, new Task().findLast(list, value), "The findLast() method doesn't work properly");
+        var actual = new Task().findLast(list, value);
+        assertEquals(expected, actual, errorMessage(String.valueOf(expected), String.valueOf(actual)));
     }
 
     private static Stream<Arguments> findFirstProvider() {
