@@ -1,6 +1,6 @@
 package org.haruatari.task2;
 
-public class Task {
+final public class Task {
     public int findFirst(int[] list, int value) {
         return -100; // TODO: Remove this line and put your code here.
     }

@@ -11,7 +11,7 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
-public class TaskTest extends BaseTest {
+final public class TaskTest extends BaseTest {
     @DisplayName("sort()")
     @ParameterizedTest(name = "sort( {0} )")
     @MethodSource("sortProvider")

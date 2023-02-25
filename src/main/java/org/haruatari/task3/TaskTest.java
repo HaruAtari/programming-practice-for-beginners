@@ -11,7 +11,7 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class TaskTest extends BaseTest {
+final public class TaskTest extends BaseTest {
     @DisplayName("merge()")
     @ParameterizedTest(name = "merge( {0}, {1} )")
     @MethodSource("mergeProvider")

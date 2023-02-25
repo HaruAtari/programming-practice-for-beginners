@@ -10,7 +10,7 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class TaskTest extends BaseTest {
+final public class TaskTest extends BaseTest {
     @DisplayName("findFirst()")
     @ParameterizedTest(name = "findFirst( {0}, {1} )")
     @MethodSource("findFirstProvider")
