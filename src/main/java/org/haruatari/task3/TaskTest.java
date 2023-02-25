@@ -17,7 +17,7 @@ public class TaskTest extends BaseTest {
     @MethodSource("mergeProvider")
     public void merge(int[] x, int[] y, int[] expected) {
         var actual = new Task().merge(x,y);
-        assertArrayEquals(expected, actual, errorMessage(Arrays.toString(expected),Arrays.toString(actual)));
+        assertArrayEquals(expected, actual, equalityErrorMessage(Arrays.toString(expected),Arrays.toString(actual)));
     }
 
     private static Stream<Arguments> mergeProvider() {

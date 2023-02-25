@@ -6,3 +6,5 @@
 [[Task 2](src/main/java/org/haruatari/task2/Description.md)] Searching by value in an array
 
 [[Task 3](src/main/java/org/haruatari/task3/Description.md)] Merging arrays of integers
+
+[[Task 4](src/main/java/org/haruatari/task4/Description.md)] Sorting of an array of integers

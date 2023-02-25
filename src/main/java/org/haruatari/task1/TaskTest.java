@@ -16,7 +16,7 @@ public class TaskTest extends BaseTest {
     @MethodSource("sumProvider")
     public void sum(int x, int y, int expected) {
         var actual = new Task().sum(x, y);
-        assertEquals(expected, actual, errorMessage(String.valueOf(expected), String.valueOf(actual)));
+        assertEquals(expected, actual, equalityErrorMessage(String.valueOf(expected), String.valueOf(actual)));
     }
 
     @DisplayName("sub()")
@@ -24,7 +24,7 @@ public class TaskTest extends BaseTest {
     @MethodSource("subProvider")
     public void sub(int x, int y, int expected) {
         var actual = new Task().sub(x, y);
-        assertEquals(expected, actual, errorMessage(String.valueOf(expected), String.valueOf(actual)));
+        assertEquals(expected, actual, equalityErrorMessage(String.valueOf(expected), String.valueOf(actual)));
     }
 
     private static Stream<Arguments> sumProvider() {

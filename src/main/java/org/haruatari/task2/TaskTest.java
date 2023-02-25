@@ -16,7 +16,7 @@ public class TaskTest extends BaseTest {
     @MethodSource("findFirstProvider")
     public void findFirst(int[] list, int value, int expected) {
         var actual = new Task().findFirst(list, value);
-        assertEquals(expected, actual, errorMessage(String.valueOf(expected), String.valueOf(actual)));
+        assertEquals(expected, actual, equalityErrorMessage(String.valueOf(expected), String.valueOf(actual)));
     }
 
     @DisplayName("findLast()")
@@ -24,7 +24,7 @@ public class TaskTest extends BaseTest {
     @MethodSource("findLastProvider")
     public void findLast(int[] list, int value, int expected) {
         var actual = new Task().findLast(list, value);
-        assertEquals(expected, actual, errorMessage(String.valueOf(expected), String.valueOf(actual)));
+        assertEquals(expected, actual, equalityErrorMessage(String.valueOf(expected), String.valueOf(actual)));
     }
 
     private static Stream<Arguments> findFirstProvider() {
