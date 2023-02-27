@@ -2,9 +2,9 @@
 
 Each task is in the separate package (for example `org.haruatari.task10`) and has the next files:
 
-- The `Description.md` markdown file with the information about what you need to to to complete the task.
-- The `Task` java class which contains your solution. The task can need some more classes but the `Task` class is the place where you should start. That class always contains methods that will be tested.
-- The `TaskTest` java class which contains unit test for the task. It checks that the `Task` class does exactly what it should do.
+- The `Description.md` markdown file with the information about what you need to do to complete the task.
+- The `TaskTest` java class which contains unit test for the task. It checks that the solution does exactly what it should do.
+- Other java classes needed to solve the task. Usually it's a `Task` class, but it's not always. See the task's description for the full information.
 
 ## A list of tasks sorting by difficulty
 

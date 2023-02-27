@@ -13,4 +13,9 @@ final public class Node {
     public String toString() {
         return "Node(id: " + id + "; number: " + number + ")";
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        return obj instanceof Node && this.id == ((Node) obj).id;
+    }
 }
