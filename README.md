@@ -3,8 +3,10 @@
 Each task is in the separate package (for example `org.haruatari.task10`) and has the next files:
 
 - The `Description.md` markdown file with the information about what you need to do to complete the task.
-- The `TaskTest` java class which contains unit test for the task. It checks that the solution does exactly what it should do.
-- Other java classes needed to solve the task. Usually it's a `Task` class, but it's not always. See the task's description for the full information.
+- The `TaskTest` java class which contains unit test for the task. It checks that the solution does exactly what it
+  should do.
+- Other java classes needed to solve the task. Usually it's a `Task` class, but it's not always. See the task's
+  description for the full information.
 
 ## A list of tasks sorting by difficulty
 
@@ -16,6 +18,7 @@ Each task is in the separate package (for example `org.haruatari.task10`) and ha
 | [Task 6](src/main/java/org/haruatari/task6) | Folding of an array of integers        | arrays          |
 | [Task 4](src/main/java/org/haruatari/task4) | Sorting of an array of integers        | arrays          |
 | [Task 5](src/main/java/org/haruatari/task5) | Sorting of an array of objects         | arrays, objects |
+| [Task 7](src/main/java/org/haruatari/task7) | Zipping of arrays of integers          | arrays          |
 
 ## A list of tasks sorted by creation date
 
@@ -27,3 +30,4 @@ Each task is in the separate package (for example `org.haruatari.task10`) and ha
 | [Task 4](src/main/java/org/haruatari/task4) | Sorting of an array of integers        | arrays          |
 | [Task 5](src/main/java/org/haruatari/task5) | Sorting of an array of objects         | arrays, objects |
 | [Task 6](src/main/java/org/haruatari/task6) | Folding of an array of integers        | arrays          |
+| [Task 7](src/main/java/org/haruatari/task7) | Zipping of arrays of integers          | arrays          |
