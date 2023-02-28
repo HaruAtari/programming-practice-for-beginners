@@ -13,9 +13,9 @@ For example the `x` argument contains the `int[] {1, 2, 3}` array and the `y` ar
 
 ```java
 int[][]{
-        {1,10}, // x[0] and y[0]
-        {2,20}, // x[1] and y[1]
-        {3,30}, // x[2] and y[2]
-        {-1,40}, // -1 because x[3] doesn't exist and y[3]
-        }
+    {1,10}, // x[0] and y[0]
+    {2,20}, // x[1] and y[1]
+    {3,30}, // x[2] and y[2]
+    {-1,40}, // -1 because x[3] doesn't exist and y[3]
+}
 ```
