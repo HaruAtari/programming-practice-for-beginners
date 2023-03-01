@@ -1,4 +1,4 @@
-package org.haruatari.task7;
+package com.haruatari.task7;
 
 final public class Task {
     public int[][] zip(int[] x, int[] y) {

@@ -13,8 +13,8 @@ public class Main {
 
     private static void runTest(String taskName) {
         switch (taskName) {
-            case "task1" -> new org.haruatari.task1.Test().run();
-//            case "task2" -> new org.haruatari.task2.Test().run();
+            case "task1" -> new com.haruatari.task1.Test().run();
+//            case "task2" -> new com.haruatari.task2.Test().run();
             default -> System.out.println("Undefined task!");
         }
     }

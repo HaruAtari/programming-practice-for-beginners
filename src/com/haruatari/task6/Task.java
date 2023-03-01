@@ -1,4 +1,4 @@
-package org.haruatari.task6;
+package com.haruatari.task6;
 
 final public class Task {
     public int fold(int[] list) {

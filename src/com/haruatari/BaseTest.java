@@ -1,4 +1,4 @@
-package org.haruatari;
+package com.haruatari;
 
 import java.util.Comparator;
 import java.util.HashMap;

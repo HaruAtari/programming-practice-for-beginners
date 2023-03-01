@@ -1,6 +1,6 @@
-package org.haruatari.task3;
+package com.haruatari.task3;
 
-import org.haruatari.BaseTest;
+import com.haruatari.BaseTest;
 
 import java.util.Arrays;
 import java.util.HashMap;

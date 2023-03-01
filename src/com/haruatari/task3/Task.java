@@ -1,4 +1,4 @@
-package org.haruatari.task3;
+package com.haruatari.task3;
 
 final public class Task {
     public int[] merge(int[] x, int[] y) {

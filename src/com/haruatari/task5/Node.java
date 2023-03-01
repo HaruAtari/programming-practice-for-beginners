@@ -1,4 +1,4 @@
-package org.haruatari.task5;
+package com.haruatari.task5;
 
 final public class Node {
     public final int number;
