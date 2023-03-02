@@ -1,12 +1,18 @@
 package com.haruatari.task1;
 
 import com.haruatari.BaseTest;
+import com.haruatari.TaskNumber;
 
 import java.util.HashMap;
 
 final public class Test extends BaseTest {
     public static void main(String[] args) {
         new Test().run();
+    }
+
+    @Override
+    public TaskNumber getNumber() {
+        return TaskNumber.TASK_1;
     }
 
     @Override
