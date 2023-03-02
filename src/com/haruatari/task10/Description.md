@@ -14,7 +14,7 @@ The `command` array can contain the next values:
 
 Pay attention: The method should return a new point, not modify the input one.
 
-For example, the method takes the next value: `Point(x: 10, y: 10)` and `new String[] {"up", "up", right", "down"}`. So
+For example, the method takes the next values: `Point(x: 10, y: 10)` and `new String[] {"up", "up", right", "down"}`. So
 the result will be `Point(x: 11, y: 11)` because:
 
 * `x: 10, y: 10` the initial values.
