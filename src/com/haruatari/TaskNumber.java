@@ -58,6 +58,12 @@ public enum TaskNumber {
         public BaseTest getTest() {
             return new com.haruatari.task9.Test();
         }
+    },
+    TASK_10("task10") {
+        @Override
+        public BaseTest getTest() {
+            return new com.haruatari.task10.Test();
+        }
     };
 
     private static final Map<String, TaskNumber> MAP;
