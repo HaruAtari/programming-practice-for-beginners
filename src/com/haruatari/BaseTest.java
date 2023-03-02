@@ -45,11 +45,28 @@ abstract public class BaseTest {
     }
 
     protected void logTotalResult() {
+        var failedCasesNumber = totalCasesNumber - successCasesNumber;
+        int longestValueLength = Math.max(
+                Math.max(
+                        String.valueOf(totalCasesNumber).length(),
+                        String.valueOf(successCasesNumber).length()
+                ),
+                String.valueOf(failedCasesNumber).length()
+        );
+
         System.out.println("--------------------------------------------------");
         System.out.println();
-        System.out.println("  Total test case: " + totalCasesNumber + "  ");
-        System.out.println(SuccessBackground + "  Success:         " + successCasesNumber + "  " + ResetColour);
-        System.out.println(ErrorBackground + "  Failed:          " + (totalCasesNumber - successCasesNumber) + "  " + ResetColour);
+
+        System.out.print("  Total test case: " + totalCasesNumber + "  ");
+        System.out.println(" ".repeat(longestValueLength - String.valueOf(totalCasesNumber).length()));
+
+        System.out.print(SuccessBackground + "  Success:         " + successCasesNumber + "  ");
+        System.out.print(" ".repeat(longestValueLength - String.valueOf(successCasesNumber).length()));
+        System.out.println(ResetColour);
+
+        System.out.print(ErrorBackground + "  Failed:          " + failedCasesNumber + "  ");
+        System.out.print(" ".repeat(longestValueLength - String.valueOf(failedCasesNumber).length()));
+        System.out.println(ResetColour);
 
     }
 
