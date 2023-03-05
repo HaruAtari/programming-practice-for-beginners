@@ -19,7 +19,8 @@ final public class Test extends BaseTest {
     @Override
     public void run() {
         testCalculateCase(new int[]{10, 20, 30, 40}, new int[]{0, 1, 2, 3}, 100);
-        testCalculateCase(new int[]{-10, -20, -30}, new int[]{0, 1, 2, 3}, -60);
+        testCalculateCase(new int[]{-10, -20, -30}, new int[]{0, 1, 2, 10}, -60);
+        testCalculateCase(new int[]{-10, -20, -30}, new int[]{10, 0, 1, 2}, -60);
         testCalculateCase(new int[]{10, 20, 30}, new int[]{1, 0, 1}, 50);
         testCalculateCase(new int[]{10, 20, 30}, new int[]{}, 0);
         testCalculateCase(new int[]{}, new int[]{0, 1, 2}, 0);
