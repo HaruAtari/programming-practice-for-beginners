@@ -18,8 +18,8 @@ final public class Test extends BaseTest {
 
     @Override
     public void run() {
-        testSortCase(new int[]{10, 20, 30}, new int[]{10, 20, 30});
-        testSortCase(new int[]{30, 20, 10}, new int[]{10, 20, 30});
+        testSortCase(new int[]{10, 20, 30, 40, 50}, new int[]{10, 20, 30, 40, 50});
+        testSortCase(new int[]{50, 40, 30, 20, 10}, new int[]{10, 20, 30, 40, 50});
         testSortCase(new int[]{10, 20, 10}, new int[]{10, 10, 20});
         testSortCase(new int[]{10, 10, 10}, new int[]{10, 10, 10});
         testSortCase(new int[]{10}, new int[]{10});
