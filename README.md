@@ -27,5 +27,6 @@ Each task is in the separate package (for example `org.haruatari.task10`) and ha
 | [Task 4](src/com/haruatari/task4)   | Sorting of an array of integers                                             | arrays          |
 | [Task 5](src/com/haruatari/task5)   | Sorting of an array of objects                                              | arrays, objects |
 | [Task 12](src/com/haruatari/task12) | Summation of values from an array of integers by indexes from another array | arrays          |
-| [Task 7](src/com/haruatari/task7)   | Zipping of arrays of integers                                               | arrays          |
 | [Task 9](src/com/haruatari/task9)   | Searching for the middle of the segment on the coordinate plane             | objects         |
+| [Task 14](src/com/haruatari/task14) | Calculate a total price for the shop cart                                   | arrays, objects |
+| [Task 7](src/com/haruatari/task7)   | Zipping of arrays of integers                                               | arrays          |
