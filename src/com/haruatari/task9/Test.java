@@ -24,19 +24,21 @@ final public class Test extends BaseTest {
         testFindMiddlePointCase(new Segment(new Point(-10, 10), new Point(10, -10)), new Point(0, 0));
         testFindMiddlePointCase(new Segment(new Point(0, 0), new Point(0, 0)), new Point(0, 0));
 
-        logTotalResult();
+        showTotalResult();
     }
 
     private void testFindMiddlePointCase(Segment segment, Point expected) {
-        logMethodName("Point findMiddlePoint(Segment segment)");
-        logMethodArguments(new HashMap<>() {{
-            put("segment", String.valueOf(segment));
-        }});
-
         var actual = new Task().findMiddlePoint(segment);
         var isSuccess = expected.equals(actual);
 
-        logMethodResults(String.valueOf(expected), String.valueOf(actual), isSuccess);
-        increaseCasesCounter(isSuccess);
+        logCase(
+                "Point findMiddlePoint(Segment segment)",
+                new HashMap<>() {{
+                    put("segment", String.valueOf(segment));
+                }},
+                String.valueOf(expected),
+                String.valueOf(actual),
+                isSuccess
+        );
     }
 }

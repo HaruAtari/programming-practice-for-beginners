@@ -25,21 +25,23 @@ final public class Test extends BaseTest {
         testMergeCase(new int[]{10}, new int[]{}, new int[]{10});
         testMergeCase(new int[]{}, new int[]{}, new int[]{});
 
-        logTotalResult();
+        showTotalResult();
     }
 
     public void testMergeCase(int[] x, int[] y, int[] expected) {
-        logMethodName("int[] merge(int[] x, int[] y)");
-        logMethodArguments(new HashMap<>() {{
-            put("x", Arrays.toString(x));
-            put("y", Arrays.toString(y));
-        }});
-
         var actual = new Task().merge(x, y);
         var isSuccess = Arrays.equals(actual, expected);
 
-        logMethodResults(Arrays.toString(expected), Arrays.toString(actual), isSuccess);
-        increaseCasesCounter(isSuccess);
+        logCase(
+                "int[] merge(int[] x, int[] y)",
+                new HashMap<>() {{
+                    put("x", Arrays.toString(x));
+                    put("y", Arrays.toString(y));
+                }},
+                Arrays.toString(expected),
+                Arrays.toString(actual),
+                isSuccess
+        );
     }
 
 }

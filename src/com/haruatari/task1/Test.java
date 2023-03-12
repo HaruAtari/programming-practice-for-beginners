@@ -25,34 +25,38 @@ final public class Test extends BaseTest {
         testSubCase(3, 2, 1);
         testSubCase(-3, -2, -1);
 
-        logTotalResult();
+        showTotalResult();
     }
 
     private void testSumCase(int x, int y, int expected) {
-        logMethodName("int sum(int x, int y)");
-        logMethodArguments(new HashMap<>() {{
-            put("x", String.valueOf(x));
-            put("y", String.valueOf(y));
-        }});
-
         var actual = new Task().sum(x, y);
         var isSuccess = actual == expected;
 
-        logMethodResults(String.valueOf(expected), String.valueOf(actual), isSuccess);
-        increaseCasesCounter(isSuccess);
+        logCase(
+                "int sum(int x, int y)",
+                new HashMap<>() {{
+                    put("x", String.valueOf(x));
+                    put("y", String.valueOf(y));
+                }},
+                String.valueOf(expected),
+                String.valueOf(actual),
+                isSuccess
+        );
     }
 
     private void testSubCase(int x, int y, int expected) {
-        logMethodName("int sub(int x, int y)");
-        logMethodArguments(new HashMap<>() {{
-            put("x", String.valueOf(x));
-            put("y", String.valueOf(y));
-        }});
-
         var actual = new Task().sub(x, y);
         var isSuccess = actual == expected;
 
-        logMethodResults(String.valueOf(expected), String.valueOf(actual), isSuccess);
-        increaseCasesCounter(isSuccess);
+        logCase(
+                "int sub(int x, int y)",
+                new HashMap<>() {{
+                    put("x", String.valueOf(x));
+                    put("y", String.valueOf(y));
+                }},
+                String.valueOf(expected),
+                String.valueOf(actual),
+                isSuccess
+        );
     }
 }

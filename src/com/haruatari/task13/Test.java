@@ -25,20 +25,22 @@ final public class Test extends BaseTest {
         testCase(new int[]{10}, 10, 1);
         testCase(new int[]{}, 10, 0);
 
-        logTotalResult();
+        showTotalResult();
     }
 
     private void testCase(int[] list, int value, int expected) {
-        logMethodName("int countOccurrences(int[] list, int value)");
-        logMethodArguments(new HashMap<>() {{
-            put("list", Arrays.toString(list));
-            put("value", String.valueOf(value));
-        }});
-
         var actual = new Task().countOccurrences(list, value);
         var isSuccess = actual == expected;
 
-        logMethodResults(String.valueOf(expected), String.valueOf(actual), isSuccess);
-        increaseCasesCounter(isSuccess);
+        logCase(
+                "int countOccurrences(int[] list, int value)",
+                new HashMap<>() {{
+                    put("list", Arrays.toString(list));
+                    put("value", String.valueOf(value));
+                }},
+                String.valueOf(expected),
+                String.valueOf(actual),
+                isSuccess
+        );
     }
 }

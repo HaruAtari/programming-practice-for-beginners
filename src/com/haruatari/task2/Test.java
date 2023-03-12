@@ -30,35 +30,39 @@ final public class Test extends BaseTest {
         testFindLastCase(new int[]{10, 20, 30}, 40, -1);
         testFindLastCase(new int[]{}, 10, -1);
 
-        logTotalResult();
+        showTotalResult();
     }
 
     private void testFindFirstCase(int[] list, int value, int expected) {
-        logMethodName("int findFirst(int[] list, int value)");
-        logMethodArguments(new HashMap<>() {{
-            put("list", Arrays.toString(list));
-            put("value", String.valueOf(value));
-        }});
-
         var actual = new Task().findFirst(list, value);
         var isSuccess = actual == expected;
 
-        logMethodResults(String.valueOf(expected), String.valueOf(actual), isSuccess);
-        increaseCasesCounter(isSuccess);
+        logCase(
+                "int findFirst(int[] list, int value)",
+                new HashMap<>() {{
+                    put("list", Arrays.toString(list));
+                    put("value", String.valueOf(value));
+                }},
+                String.valueOf(expected),
+                String.valueOf(actual),
+                isSuccess
+        );
     }
 
     private void testFindLastCase(int[] list, int value, int expected) {
-        logMethodName("int findLast(int[] list, int value)");
-        logMethodArguments(new HashMap<>() {{
-            put("list", Arrays.toString(list));
-            put("value", String.valueOf(value));
-        }});
-
         var actual = new Task().findLast(list, value);
         var isSuccess = actual == expected;
 
-        logMethodResults(String.valueOf(expected), String.valueOf(actual), isSuccess);
-        increaseCasesCounter(isSuccess);
+        logCase(
+                "int findLast(int[] list, int value)",
+                new HashMap<>() {{
+                    put("list", Arrays.toString(list));
+                    put("value", String.valueOf(value));
+                }},
+                String.valueOf(expected),
+                String.valueOf(actual),
+                isSuccess
+        );
     }
 
 

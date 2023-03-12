@@ -26,19 +26,21 @@ final public class Test extends BaseTest {
         testFoldCase(new int[][]{}, 0);
         testFoldCase(new int[][]{{}, {}}, 0);
 
-        logTotalResult();
+        showTotalResult();
     }
 
     public void testFoldCase(int[][] list, int expected) {
-        logMethodName("int fold(int[][] list)");
-        logMethodArguments(new HashMap<>() {{
-            put("list", Arrays.deepToString(list));
-        }});
-
         var actual = new Task().fold(list);
         var isSuccess = actual == expected;
 
-        logMethodResults(String.valueOf(expected), String.valueOf(actual), isSuccess);
-        increaseCasesCounter(isSuccess);
+        logCase(
+                "int fold(int[][] list)",
+                new HashMap<>() {{
+                    put("list", Arrays.deepToString(list));
+                }},
+                String.valueOf(expected),
+                String.valueOf(actual),
+                isSuccess
+        );
     }
 }

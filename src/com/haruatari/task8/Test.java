@@ -38,32 +38,36 @@ final public class Test extends BaseTest {
         testMaxCase(new int[]{0}, 0);
         testMaxCase(new int[]{}, 0);
 
-        logTotalResult();
+        showTotalResult();
     }
 
     private void testMinCase(int[] list, int expected) {
-        logMethodName("int min(int[] list)");
-        logMethodArguments(new HashMap<>() {{
-            put("list", Arrays.toString(list));
-        }});
-
         var actual = new Task().min(list);
         var isSuccess = actual == expected;
 
-        logMethodResults(String.valueOf(expected), String.valueOf(actual), isSuccess);
-        increaseCasesCounter(isSuccess);
+        logCase(
+                "int min(int[] list)",
+                new HashMap<>() {{
+                    put("list", Arrays.toString(list));
+                }},
+                String.valueOf(expected),
+                String.valueOf(actual),
+                isSuccess
+        );
     }
 
     private void testMaxCase(int[] list, int expected) {
-        logMethodName("int max(int[] list)");
-        logMethodArguments(new HashMap<>() {{
-            put("list", Arrays.toString(list));
-        }});
-
-        var actual = new Task().min(list);
+        var actual = new Task().max(list);
         var isSuccess = actual == expected;
 
-        logMethodResults(String.valueOf(expected), String.valueOf(actual), isSuccess);
-        increaseCasesCounter(isSuccess);
+        logCase(
+                "int max(int[] list)",
+                new HashMap<>() {{
+                    put("list", Arrays.toString(list));
+                }},
+                String.valueOf(expected),
+                String.valueOf(actual),
+                isSuccess
+        );
     }
 }

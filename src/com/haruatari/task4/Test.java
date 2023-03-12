@@ -24,19 +24,21 @@ final public class Test extends BaseTest {
         testSortCase(new int[]{10, 10, 10}, new int[]{10, 10, 10});
         testSortCase(new int[]{10}, new int[]{10});
         testSortCase(new int[]{}, new int[]{});
-        logTotalResult();
+        showTotalResult();
     }
 
     public void testSortCase(int[] list, int[] expected) {
-        logMethodName("void sort(int[] list)");
-        logMethodArguments(new HashMap<>() {{
-            put("list", Arrays.toString(list));
-        }});
-
         new Task().sort(list);
         var isSuccess = Arrays.equals(list, expected);
 
-        logMethodResults(Arrays.toString(expected), Arrays.toString(list), isSuccess);
-        increaseCasesCounter(isSuccess);
+        logCase(
+                "void sort(int[] list)",
+                new HashMap<>() {{
+                    put("list", Arrays.toString(list));
+                }},
+                Arrays.toString(expected),
+                Arrays.toString(list),
+                isSuccess
+        );
     }
 }

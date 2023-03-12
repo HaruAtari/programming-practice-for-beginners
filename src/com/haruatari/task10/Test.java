@@ -22,20 +22,22 @@ final public class Test extends BaseTest {
         testMoveCase(new Point(1, 1), new String[]{"right", "right", "down", "down", "left", "left", "up", "up"}, new Point(1, 1));
         testMoveCase(new Point(0, 0), new String[]{"up"}, new Point(0, 1));
         testMoveCase(new Point(0, 0), new String[]{}, new Point(0, 0));
-        logTotalResult();
+        showTotalResult();
     }
 
     private void testMoveCase(Point point, String[] commands, Point expected) {
-        logMethodName("Point move(Point point, String[] commands)");
-        logMethodArguments(new HashMap<>() {{
-            put("point", String.valueOf(point));
-            put("commands", Arrays.toString(commands));
-        }});
-
         var actual = new Task().move(point, commands);
         var isSuccess = expected.equals(actual);
 
-        logMethodResults(String.valueOf(expected), String.valueOf(actual), isSuccess);
-        increaseCasesCounter(isSuccess);
+        logCase(
+                "Point move(Point point, String[] commands)",
+                new HashMap<>() {{
+                    put("point", String.valueOf(point));
+                    put("commands", Arrays.toString(commands));
+                }},
+                String.valueOf(expected),
+                String.valueOf(actual),
+                isSuccess
+        );
     }
 }

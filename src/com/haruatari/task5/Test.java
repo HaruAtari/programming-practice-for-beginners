@@ -42,19 +42,21 @@ final public class Test extends BaseTest {
                 new Node[]{},
                 new Node[]{}
         );
-        logTotalResult();
+        showTotalResult();
     }
 
     public void testSortCase(Node[] list, Node[] expected) {
-        logMethodName("void sort(Node[] list)");
-        logMethodArguments(new HashMap<>() {{
-            put("list", Arrays.toString(list));
-        }});
-
         new Task().sort(list);
         var isSuccess = Arrays.equals(list, expected);
 
-        logMethodResults(Arrays.toString(expected), Arrays.toString(list), isSuccess);
-        increaseCasesCounter(isSuccess);
+        logCase(
+                "void sort(Node[] list)",
+                new HashMap<>() {{
+                    put("list", Arrays.toString(list));
+                }},
+                Arrays.toString(expected),
+                Arrays.toString(list),
+                isSuccess
+        );
     }
 }

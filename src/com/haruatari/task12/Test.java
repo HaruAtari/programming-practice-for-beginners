@@ -26,20 +26,22 @@ final public class Test extends BaseTest {
         testCalculateCase(new int[]{}, new int[]{0, 1, 2}, 0);
         testCalculateCase(new int[]{}, new int[]{}, 0);
 
-        logTotalResult();
+        showTotalResult();
     }
 
     public void testCalculateCase(int[] values, int[] indexes, int expected) {
-        logMethodName("int calculate(int[] values, int[] indexes)");
-        logMethodArguments(new HashMap<>() {{
-            put("values", Arrays.toString(values));
-            put("indexes", Arrays.toString(indexes));
-        }});
-
         var actual = new Task().calculate(values, indexes);
         var isSuccess = actual == expected;
 
-        logMethodResults(String.valueOf(expected), String.valueOf(actual), isSuccess);
-        increaseCasesCounter(isSuccess);
+        logCase(
+                "int calculate(int[] values, int[] indexes)",
+                new HashMap<>() {{
+                    put("values", Arrays.toString(values));
+                    put("indexes", Arrays.toString(indexes));
+                }},
+                String.valueOf(expected),
+                String.valueOf(actual),
+                isSuccess
+        );
     }
 }

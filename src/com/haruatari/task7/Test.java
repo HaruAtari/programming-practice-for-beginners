@@ -25,20 +25,22 @@ final public class Test extends BaseTest {
         testZipCase(new int[]{}, new int[]{10, 20}, new int[][]{{-1, 10}, {-1, 20}});
         testZipCase(new int[]{}, new int[]{}, new int[][]{});
 
-        logTotalResult();
+        showTotalResult();
     }
 
     private void testZipCase(int[] x, int[] y, int[][] expected) {
-        logMethodName("int[][] zip(int[] x, int[] y)");
-        logMethodArguments(new HashMap<>() {{
-            put("x", Arrays.toString(x));
-            put("y", Arrays.toString(y));
-        }});
-
         var actual = new Task().zip(x, y);
         var isSuccess = Arrays.deepEquals(actual, expected);
 
-        logMethodResults(Arrays.deepToString(expected), Arrays.deepToString(actual), isSuccess);
-        increaseCasesCounter(isSuccess);
+        logCase(
+                "int[][] zip(int[] x, int[] y)",
+                new HashMap<>() {{
+                    put("x", Arrays.toString(x));
+                    put("y", Arrays.toString(y));
+                }},
+                Arrays.deepToString(expected),
+                Arrays.deepToString(actual),
+                isSuccess
+        );
     }
 }

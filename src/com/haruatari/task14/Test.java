@@ -32,19 +32,21 @@ final public class Test extends BaseTest {
         }), 250);
         testCase(new Cart(new Product[]{}), 0);
 
-        logTotalResult();
+        showTotalResult();
     }
 
     private void testCase(Cart cart, int expected) {
-        logMethodName("int calculatePayment(Cart cart)");
-        logMethodArguments(new HashMap<>() {{
-            put("cart", String.valueOf(cart));
-        }});
-
         var actual = new Task().calculatePayment(cart);
         var isSuccess = actual == expected;
 
-        logMethodResults(String.valueOf(expected), String.valueOf(actual), isSuccess);
-        increaseCasesCounter(isSuccess);
+        logCase(
+                "int calculatePayment(Cart cart)",
+                new HashMap<>() {{
+                    put("cart", String.valueOf(cart));
+                }},
+                String.valueOf(expected),
+                String.valueOf(actual),
+                isSuccess
+        );
     }
 }

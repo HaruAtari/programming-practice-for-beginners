@@ -10,6 +10,9 @@ abstract public class BaseTest {
     final static private String BACKGROUND_SUCCESS = "\u001B[42m";
     final static private String RESET_STYLE = "\u001B[0m";
 
+    private StringBuilder successCasesOutput = new StringBuilder();
+    private StringBuilder failedCasesOutput = new StringBuilder();
+
     private int totalCasesNumber = 0;
     private int successCasesNumber = 0;
 
@@ -17,29 +20,69 @@ abstract public class BaseTest {
 
     abstract public TaskNumber getNumber();
 
-    protected void increaseCasesCounter(boolean isSuccess) {
+    protected void logCase(
+            String caseName,
+            HashMap<String, String> arguments,
+            String expected,
+            String actual,
+            boolean isSuccess
+    ) {
+        var sb = new StringBuilder();
+        sb.append(logCaseName(caseName));
+        sb.append(logCaseArguments(arguments));
+        sb.append(logCaseResults(expected, actual, isSuccess));
+
+        if (isSuccess) {
+            successCasesOutput.append(sb);
+        } else {
+            failedCasesOutput.append(sb);
+        }
+
         totalCasesNumber++;
         if (isSuccess) {
             successCasesNumber++;
         }
     }
 
-    protected void logMethodName(String name) {
-        System.out.println("----------------------------------------------------------------------------------------------------");
-        System.out.println(COLOUR_HIGHLIGHT + "Method:" + RESET_STYLE);
-        System.out.println(name);
-        System.out.println();
+    private String logCaseName(String name) {
+        var sb = new StringBuilder();
+        sb.append("----------------------------------------------------------------------------------------------------\n");
+        sb.append(COLOUR_HIGHLIGHT + "Method:" + RESET_STYLE + "\n");
+        sb.append(name + "\n\n");
+        return sb.toString();
     }
 
-    protected void logMethodArguments(HashMap<String, String> arguments) {
-        System.out.println(COLOUR_HIGHLIGHT + "Arguments:" + RESET_STYLE);
+    private String logCaseArguments(HashMap<String, String> arguments) {
+        var sb = new StringBuilder();
+
+        sb.append(COLOUR_HIGHLIGHT + "Arguments:" + RESET_STYLE + "\n");
         for (var entity : arguments.entrySet()) {
-            System.out.println(entity.getKey() + ": " + entity.getValue());
+            sb.append(entity.getKey() + ": " + entity.getValue() + "\n");
         }
-        System.out.println();
+        sb.append("\n");
+
+        return sb.toString();
     }
 
-    protected void logTotalResult() {
+    private String logCaseResults(String expected, String actual, boolean isSuccess) {
+        var sb = new StringBuilder();
+        sb.append(COLOUR_HIGHLIGHT + "Result:" + RESET_STYLE + "\n");
+        sb.append("Expected: " + expected + "\n");
+        sb.append("Actual: " + actual + "\n");
+        sb.append("Summary: ");
+        if (isSuccess) {
+            sb.append(COLOUR_SUCCESS + "Success" + RESET_STYLE + "\n");
+        } else {
+            sb.append(COLOUR_ERROR + "Failed" + RESET_STYLE + "\n");
+        }
+
+        return sb.toString();
+    }
+
+    protected void showTotalResult() {
+        System.out.println(successCasesOutput.toString());
+        System.out.println(failedCasesOutput.toString());
+
         var failedCasesNumber = totalCasesNumber - successCasesNumber;
         int longestValueLength = Math.max(
                 Math.max(
@@ -62,17 +105,5 @@ abstract public class BaseTest {
         System.out.print(BACKGROUND_ERROR + "  Failed:          " + failedCasesNumber + "  ");
         System.out.print(" ".repeat(longestValueLength - String.valueOf(failedCasesNumber).length()));
         System.out.println(RESET_STYLE);
-    }
-
-    protected void logMethodResults(String expected, String actual, boolean isSuccess) {
-        System.out.println(COLOUR_HIGHLIGHT+"Result:"+RESET_STYLE);
-        System.out.println("Expected: " + expected);
-        System.out.println("Actual: " + actual);
-        System.out.print  ("Summary: ");
-        if (isSuccess) {
-            System.out.println(COLOUR_SUCCESS + "Success" + RESET_STYLE);
-        } else {
-            System.out.println(COLOUR_ERROR + "Failed" + RESET_STYLE);
-        }
     }
 }

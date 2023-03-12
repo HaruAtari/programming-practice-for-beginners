@@ -56,20 +56,22 @@ final public class Test extends BaseTest {
                 0
         );
 
-        logTotalResult();
+        showTotalResult();
     }
 
     private void testCase(Product[] products, Discount[] discounts, int expected) {
-        logMethodName("int calculatePayment(Product[] products, Discount[] discounts)");
-        logMethodArguments(new HashMap<>() {{
-            put("products", Arrays.toString(products));
-            put("discounts", Arrays.toString(discounts));
-        }});
-
         var actual = new Task().calculatePayment(products, discounts);
         var isSuccess = actual == expected;
 
-        logMethodResults(String.valueOf(expected), String.valueOf(actual), isSuccess);
-        increaseCasesCounter(isSuccess);
+        logCase(
+                "int calculatePayment(Product[] products, Discount[] discounts)",
+                new HashMap<>() {{
+                    put("products", Arrays.toString(products));
+                    put("discounts", Arrays.toString(discounts));
+                }},
+                String.valueOf(expected),
+                String.valueOf(actual),
+                isSuccess
+        );
     }
 }
