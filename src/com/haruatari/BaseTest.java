@@ -1,11 +1,11 @@
 package com.haruatari;
 
-import java.util.Comparator;
 import java.util.HashMap;
 
 abstract public class BaseTest {
     final static private String COLOUR_ERROR = "\u001B[31m";
     final static private String COLOUR_SUCCESS = "\u001B[32m";
+    final static private String COLOUR_HIGHLIGHT = "\u001B[34m";
     final static private String BACKGROUND_ERROR = "\u001B[41m";
     final static private String BACKGROUND_SUCCESS = "\u001B[42m";
     final static private String RESET_STYLE = "\u001B[0m";
@@ -25,25 +25,18 @@ abstract public class BaseTest {
     }
 
     protected void logMethodName(String name) {
-        System.out.println("--------------------------------------------------");
-        System.out.println("Method: " + name);
+        System.out.println("----------------------------------------------------------------------------------------------------");
+        System.out.println(COLOUR_HIGHLIGHT + "Method:" + RESET_STYLE);
+        System.out.println(name);
+        System.out.println();
     }
 
     protected void logMethodArguments(HashMap<String, String> arguments) {
-        System.out.println("Arguments:");
-
-        int longestArgumentName = arguments
-                .keySet()
-                .stream()
-                .map(String::length)
-                .max(Comparator.comparingInt(i -> i))
-                .get();
-
+        System.out.println(COLOUR_HIGHLIGHT + "Arguments:" + RESET_STYLE);
         for (var entity : arguments.entrySet()) {
-            System.out.print("  " + entity.getKey());
-            System.out.print(" ".repeat(longestArgumentName - entity.getKey().length()));
-            System.out.println(": " + entity.getValue());
+            System.out.println(entity.getKey() + ": " + entity.getValue());
         }
+        System.out.println();
     }
 
     protected void logTotalResult() {
@@ -56,7 +49,7 @@ abstract public class BaseTest {
                 String.valueOf(failedCasesNumber).length()
         );
 
-        System.out.println("--------------------------------------------------");
+        System.out.println("----------------------------------------------------------------------------------------------------");
         System.out.println();
 
         System.out.print("  Total test case: " + totalCasesNumber + "  ");
@@ -69,18 +62,17 @@ abstract public class BaseTest {
         System.out.print(BACKGROUND_ERROR + "  Failed:          " + failedCasesNumber + "  ");
         System.out.print(" ".repeat(longestValueLength - String.valueOf(failedCasesNumber).length()));
         System.out.println(RESET_STYLE);
-
     }
 
     protected void logMethodResults(String expected, String actual, boolean isSuccess) {
-        System.out.println("Result:");
-        System.out.println("  Expected: " + expected);
-        System.out.println("  Actual:   " + actual);
+        System.out.println(COLOUR_HIGHLIGHT+"Result:"+RESET_STYLE);
+        System.out.println("Expected: " + expected);
+        System.out.println("Actual: " + actual);
+        System.out.print  ("Summary: ");
         if (isSuccess) {
-            System.out.println(COLOUR_SUCCESS + "            Success" + RESET_STYLE);
+            System.out.println(COLOUR_SUCCESS + "Success" + RESET_STYLE);
         } else {
-            System.out.println(COLOUR_ERROR + "            Failed" + RESET_STYLE);
+            System.out.println(COLOUR_ERROR + "Failed" + RESET_STYLE);
         }
-
     }
 }
