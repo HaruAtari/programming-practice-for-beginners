@@ -1,6 +1,6 @@
 package com.haruatari.task14;
 
-import java.util.Arrays;
+import com.haruatari.Helper;
 
 final class Cart {
     public final Product[] products;
@@ -11,6 +11,6 @@ final class Cart {
 
     @Override
     public String toString() {
-        return "Cart(products: " + Arrays.toString(products) + ")";
+        return "Cart(\n  products: " + Helper.alignArray(products, 1) + "\n)";
     }
 }

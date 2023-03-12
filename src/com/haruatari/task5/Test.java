@@ -1,6 +1,7 @@
 package com.haruatari.task5;
 
 import com.haruatari.BaseTest;
+import com.haruatari.Helper;
 import com.haruatari.TaskNumber;
 
 import java.util.Arrays;
@@ -52,10 +53,10 @@ final public class Test extends BaseTest {
         logCase(
                 "void sort(Node[] list)",
                 new HashMap<>() {{
-                    put("list", Arrays.toString(list));
+                    put("list", Helper.alignArray(list));
                 }},
-                Arrays.toString(expected),
-                Arrays.toString(list),
+                Helper.alignArray(expected),
+                Helper.alignArray(list),
                 isSuccess
         );
     }

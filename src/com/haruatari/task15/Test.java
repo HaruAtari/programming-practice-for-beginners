@@ -1,9 +1,9 @@
 package com.haruatari.task15;
 
 import com.haruatari.BaseTest;
+import com.haruatari.Helper;
 import com.haruatari.TaskNumber;
 
-import java.util.Arrays;
 import java.util.HashMap;
 
 final public class Test extends BaseTest {
@@ -66,8 +66,8 @@ final public class Test extends BaseTest {
         logCase(
                 "int calculatePayment(Product[] products, Discount[] discounts)",
                 new HashMap<>() {{
-                    put("products", Arrays.toString(products));
-                    put("discounts", Arrays.toString(discounts));
+                    put("products", Helper.alignArray(products));
+                    put("discounts", Helper.alignArray(discounts));
                 }},
                 String.valueOf(expected),
                 String.valueOf(actual),
