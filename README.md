@@ -31,5 +31,6 @@ Each task is in the separate package (for example `org.haruatari.task10`) and ha
 | [Task 14](src/com/haruatari/task14) | Calculating of a total price for the shop cart                               | arrays, objects |
 | [Task 15](src/com/haruatari/task15) | Calculating of a total price for the shop cart taking discounts into account | arrays, objects |
 | [Task 15](src/com/haruatari/task15) | Calculating of a total price for the shop cart taking discounts into account | arrays, objects |
-| [Task 16](src/com/haruatari/task16) | Searching for the most popular post on the social network                    | arrays, objects |
+| [Task 16](src/com/haruatari/task16) | Searching for the most popular posts on the social network. Part 1           | arrays, objects |
+| [Task 17](src/com/haruatari/task17) | Searching for the most popular posts on the social network. Part 2           | arrays, objects |
 | [Task 7](src/com/haruatari/task7)   | Zipping of arrays of integers                                                | arrays          |

@@ -1,4 +1,4 @@
-# Searching for the most popular post on the social network
+# Searching for the most popular posts on the social network. Part 1
 
 You are holding a contest on the popular social network InstaLiter.The contest is over, and now you should find the
 winner. To do it you should implement the `Task.findWinner()` method which takes the `Post[] posts` arguments with a
