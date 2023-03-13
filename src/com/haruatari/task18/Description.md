@@ -1,7 +1,7 @@
-# Searching for the most popular posts on the social network. Part 2
+# Searching for the most popular posts on the social network. Part 3
 
 Now you noticed that some users creates fake accounts to trick you and have higher chance for winning. You decided to
-allow only your followers to participate in the contest. Given that InstaLiter denny unconfirmed users to follow
+allow only your followers to participate in the contest. Given that InstaLiter denys unconfirmed users to follow
 someone, you don't have to worry about participants' confirmation - it's enough to check that they are your followers.
 
 You should implement the `Task.findWinners()` method which takes the `Post[] posts` arguments with a
