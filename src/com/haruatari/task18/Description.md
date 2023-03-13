@@ -1,18 +1,18 @@
 # Searching for the most popular posts on the social network. Part 2
 
-When you started looking for a winner of your contest on the InstaLiter social network (see task 16), you noticed that
-there are a lot of participants - much more that you expected. After a short thinking you decided to increase the number
-of prize places, so more participants can win. You also decided that the number of reposts doesn't matter for you. Now
-you should implement a new method which will search the winner.
+Now you noticed that some users creates fake accounts to trick you and have higher chance for winning. You decided to
+allow only your followers to participate in the contest. Given that InstaLiter denny unconfirmed users to follow
+someone, you don't have to worry about participants' confirmation - it's enough to check that they are your followers.
 
-To do it you should implement the `Task.findWinners()` method which takes the `Post[] posts` arguments with a
+You should implement the `Task.findWinners()` method which takes the `Post[] posts` arguments with a
 list of posts and return the `User[]` list of winners. The list of winners should be sorted by the place: the `0`
 element is the first place, the `1` is the second place, and the `2` element is the third place.
 
 Each post has the next fields: `int likesNumber`, `User author`. Each user has the next fields: `int age` and
-`boolean isConfirmed`.
+`boolean isConfirmed`. The `Task` class has the `User[] followers` field which contains a list of your followers.
 
-* Only posts which authors are 18 (`>= 18`) years old and is confirmed can win.
+* Only posts which authors are 18 (`>= 18`) years old can win.
+* The user can become a winner only if he/she is your follower (he/she is in the `Task.followers` list).
 * A post that fits all requirements and has the maximum number of likes wins and its author is the winner.
 * The number of prize places is **3**.
 

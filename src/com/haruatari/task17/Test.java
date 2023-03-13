@@ -4,6 +4,7 @@ import com.haruatari.BaseTest;
 import com.haruatari.Helper;
 import com.haruatari.TaskNumber;
 
+import java.util.Arrays;
 import java.util.HashMap;
 
 final public class Test extends BaseTest {
@@ -13,7 +14,7 @@ final public class Test extends BaseTest {
 
     @Override
     public TaskNumber getNumber() {
-        return TaskNumber.TASK_16;
+        return TaskNumber.TASK_17;
     }
 
     @Override
@@ -65,11 +66,11 @@ final public class Test extends BaseTest {
     }
 
     private void testCase(Post[] posts, User[] expected) {
-        var actual = new Task().findWinner(posts);
-        var isSuccess = actual == expected;
+        var actual = new Task().findWinners(posts);
+        var isSuccess = Arrays.equals(actual, expected);
 
         logCase(
-                "User[] findWinner(Post[] posts)",
+                "User[] findWinners(Post[] posts)",
                 new HashMap<>() {{
                     put("posts", Helper.alignArray(posts));
                 }},

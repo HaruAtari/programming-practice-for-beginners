@@ -1,19 +1,17 @@
-package com.haruatari.task16;
+package com.haruatari.task18;
 
 final class User {
     public final int age;
-    public final boolean isConfirmed;
     public final String name;
 
-    public User(String name, int age, boolean isConfirmed) {
+    public User(String name, int age) {
         this.name = name;
         this.age = age;
-        this.isConfirmed = isConfirmed;
     }
 
     @Override
     public String toString() {
-        return "User(name: " + name + "; age: " + age + "; isConfirmed: " + isConfirmed + ")";
+        return "User(name: " + name + "; age: " + age + ")";
     }
 
     @Override

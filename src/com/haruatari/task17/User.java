@@ -15,4 +15,14 @@ final class User {
     public String toString() {
         return "User(name: " + name + "; age: " + age + "; isConfirmed: " + isConfirmed + ")";
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (!(obj instanceof User)) {
+            return false;
+        }
+        var other = (User) obj;
+
+        return this.name.equals(other.name);
+    }
 }

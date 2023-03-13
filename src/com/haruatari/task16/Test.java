@@ -51,7 +51,7 @@ final public class Test extends BaseTest {
 
     private void testCase(Post[] posts, User expected) {
         var actual = new Task().findWinner(posts);
-        var isSuccess = actual == expected;
+        var isSuccess = actual.equals(expected);
 
         logCase(
                 "User findWinner(Post[] posts)",
