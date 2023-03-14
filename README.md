@@ -27,10 +27,11 @@ Each task is in the separate package (for example `org.haruatari.task10`) and ha
 | [Task 4](src/com/haruatari/task4)   | Sorting of an array of integers                                              | arrays          |
 | [Task 5](src/com/haruatari/task5)   | Sorting of an array of objects                                               | arrays, objects |
 | [Task 12](src/com/haruatari/task12) | Summation of values from an array of integers by indexes from another array  | arrays          |
+| [Task 7](src/com/haruatari/task7)   | Zipping of arrays of integers                                                | arrays          |
 | [Task 9](src/com/haruatari/task9)   | Searching for the middle of the segment on the coordinate plane              | objects         |
 | [Task 14](src/com/haruatari/task14) | Calculating of a total price for the shop cart                               | arrays, objects |
 | [Task 15](src/com/haruatari/task15) | Calculating of a total price for the shop cart taking discounts into account | arrays, objects |
 | [Task 16](src/com/haruatari/task16) | Searching for the most popular posts on the social network. Part 1           | arrays, objects |
 | [Task 17](src/com/haruatari/task17) | Searching for the most popular posts on the social network. Part 2           | arrays, objects |
 | [Task 18](src/com/haruatari/task18) | Searching for the most popular posts on the social network. Part 3           | arrays, objects |
-| [Task 7](src/com/haruatari/task7)   | Zipping of arrays of integers                                                | arrays          |
+| [Task 19](src/com/haruatari/task19) | Creating a linked list. Part 1: Searching                                    | objects         |
