@@ -116,7 +116,13 @@ public enum TaskNumber {
     TASK_19("task19") {
         @Override
         public BaseTest getTest() {
-            return new com.haruatari.task18.Test();
+            return new com.haruatari.task19.Test();
+        }
+    },
+    TASK_20("task20") {
+        @Override
+        public BaseTest getTest() {
+            return new com.haruatari.task20.Test();
         }
     };
 
