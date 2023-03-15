@@ -20,7 +20,19 @@ abstract public class BaseTest {
 
     abstract public TaskNumber getNumber();
 
+    @Deprecated
     protected void logCase(
+            String methodName,
+            HashMap<String, String> arguments,
+            String expected,
+            String actual,
+            boolean isSuccess
+    ) {
+        logCase(methodName, null, arguments, expected, actual, isSuccess);
+    }
+
+    protected void logCase(
+            String methodName,
             String caseName,
             HashMap<String, String> arguments,
             String expected,
@@ -28,6 +40,7 @@ abstract public class BaseTest {
             boolean isSuccess
     ) {
         var sb = new StringBuilder();
+        sb.append(logMethodName(methodName));
         sb.append(logCaseName(caseName));
         sb.append(logCaseArguments(arguments));
         sb.append(logCaseResults(expected, actual, isSuccess));
@@ -44,10 +57,24 @@ abstract public class BaseTest {
         }
     }
 
-    private String logCaseName(String name) {
+    private String logMethodName(String name) {
         var sb = new StringBuilder();
         sb.append("----------------------------------------------------------------------------------------------------\n");
-        sb.append(COLOUR_HIGHLIGHT + "Method:" + RESET_STYLE + "\n");
+        sb.append(COLOUR_HIGHLIGHT + "Method: " + RESET_STYLE);
+        sb.append(name + "\n");
+        return sb.toString();
+    }
+
+    private String logCaseName(String name) {
+        var sb = new StringBuilder();
+
+        if (name == null) {
+            sb.append("\n");
+
+            return sb.toString();
+        }
+
+        sb.append(COLOUR_HIGHLIGHT + "Case: " + RESET_STYLE);
         sb.append(name + "\n\n");
         return sb.toString();
     }
