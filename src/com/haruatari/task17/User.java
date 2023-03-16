@@ -1,6 +1,6 @@
 package com.haruatari.task17;
 
-final class User {
+public final class User {
     public final int age;
     public final boolean isConfirmed;
     public final String name;

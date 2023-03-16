@@ -3,6 +3,7 @@ package com.haruatari;
 import java.util.HashMap;
 import java.util.Map;
 
+@Deprecated
 abstract public class BaseTest {
     final static private String COLOUR_ERROR = "\u001B[31m";
     final static private String COLOUR_SUCCESS = "\u001B[32m";

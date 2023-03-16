@@ -1,25 +1,39 @@
-package com.haruatari.task18;
+package com.haruatari.task18.tests;
 
-import com.haruatari.BaseTest;
 import com.haruatari.Helper;
-import com.haruatari.TaskNumber;
+import com.haruatari._src.loggers.CaseLogger;
+import com.haruatari._src.tests.MethodTest;
+import com.haruatari.task18.Post;
+import com.haruatari.task18.Task;
+import com.haruatari.task18.User;
 
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Map;
+import java.util.function.Consumer;
 
-final public class Test extends BaseTest {
+final class FindWinners_Test extends MethodTest {
     public static void main(String[] args) {
-        new Test().run();
+        new FindWinners_Test().run();
     }
 
     @Override
-    public TaskNumber getNumber() {
-        return TaskNumber.TASK_18;
+    protected String getMethodName() {
+        return "User[] findWinners(Post[] posts)";
     }
 
     @Override
-    public void run() {
+    protected Map<String, Consumer<CaseLogger>> getCases() {
+        var instance = this;
+        return new HashMap<>() {{
+            put("All users are followers", instance::all);
+            put("Not all users are followers", instance::notAll);
+        }};
+    }
+
+    private void all(CaseLogger logger) {
         testCase(
+                logger,
                 new Post[]{
                         new Post(50, new User("Bob", 30)),
                         new Post(75, new User("Marina", 23)),
@@ -36,7 +50,11 @@ final public class Test extends BaseTest {
                         new User("Bob", 30)
                 }
         );
+    }
+
+    private void notAll(CaseLogger logger) {
         testCase(
+                logger,
                 new Post[]{
                         new Post(150, new User("Karen", 50)),
                         new Post(200, new User("Stan", 12)),
@@ -56,23 +74,17 @@ final public class Test extends BaseTest {
                         new User("Bob", 30)
                 }
         );
-
-        showTotalResult();
     }
 
-    private void testCase(Post[] posts, User[] followers, User[] expected) {
+    private void testCase(CaseLogger logger, Post[] posts, User[] followers, User[] expected) {
         var actual = new Task(followers).findWinners(posts);
-        var isSuccess = Arrays.equals(actual, expected);
-
-        logCase(
-                "User[] findWinners(Post[] posts)",
-                new HashMap<>() {{
+        logger
+                .setArguments(new HashMap<>() {{
                     put("Task.followers", Helper.alignArray(followers));
                     put("posts", Helper.alignArray(posts));
-                }},
-                Helper.alignArray(expected),
-                Helper.alignArray(actual),
-                isSuccess
-        );
+                }})
+                .setExpected(Helper.alignArray(expected))
+                .setActual(Helper.alignArray(actual))
+                .setIsSuccess(Arrays.equals(actual, expected));
     }
 }

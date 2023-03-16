@@ -1,6 +1,6 @@
 package com.haruatari.task19;
 
-final class Node {
+public final class Node {
     public final String value;
     public Node next = null;
     public Node prev = null;

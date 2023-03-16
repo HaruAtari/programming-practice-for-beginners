@@ -1,6 +1,6 @@
 package com.haruatari.task8;
 
-final class Task {
+public final class Task {
     public int min(int[] list) {
         return -100; // TODO: Remove this line and put your code here.
     }

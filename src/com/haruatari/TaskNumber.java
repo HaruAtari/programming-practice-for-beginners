@@ -4,6 +4,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
+@Deprecated
 public enum TaskNumber {
     TASK_1("task1") {
         @Override
@@ -45,12 +46,6 @@ public enum TaskNumber {
         @Override
         public BaseTest getTest() {
             return new com.haruatari.task7.Test();
-        }
-    },
-    TASK_8("task8") {
-        @Override
-        public BaseTest getTest() {
-            return new com.haruatari.task8.Test();
         }
     },
     TASK_9("task9") {
@@ -99,24 +94,6 @@ public enum TaskNumber {
         @Override
         public BaseTest getTest() {
             return new com.haruatari.task16.Test();
-        }
-    },
-    TASK_17("task17") {
-        @Override
-        public BaseTest getTest() {
-            return new com.haruatari.task17.Test();
-        }
-    },
-    TASK_18("task18") {
-        @Override
-        public BaseTest getTest() {
-            return new com.haruatari.task18.Test();
-        }
-    },
-    TASK_19("task19") {
-        @Override
-        public BaseTest getTest() {
-            return new com.haruatari.task19.Test();
         }
     };
 
