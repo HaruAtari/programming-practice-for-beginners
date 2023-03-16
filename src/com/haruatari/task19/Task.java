@@ -10,30 +10,10 @@ final class Task {
     }
 
     public Node findByValue(String value) {
-        var n = firstNode;
-        while (n!=null){
-           if(n.value.equals(value)){
-               return n;
-            }
-           n=n.next;
-        }
         return null; // TODO: Remove this line and put your code here.
     }
 
     public Node findByIndex(int index) {
-        var n = firstNode;
-        var i =0;
-        while (i<=index){
-            if(n==null){
-                return null;
-            }
-            if(i==index){
-                return n;
-            }
-
-            n=n.next;
-            i++;
-        }
         return null; // TODO: Remove this line and put your code here.
     }
 }
