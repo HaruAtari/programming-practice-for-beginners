@@ -87,6 +87,16 @@ final public class Test extends BaseTest {
                     new Node("Cat", new Node("Dog", new Node("Rat")))
             );
         }
+        {
+            var node = new Node("Cat");
+            testInsertAfterCase(
+                    "Inserting in the list with nodes that have similar values (a new node expected to be inserted after the specified node)",
+                    new Node("Cat", new Node("Dog", node)),
+                    "Rat",
+                    node,
+                    new Node("Cat", new Node("Dog", new Node("Cat", new Node("Rat"))))
+            );
+        }
 
         {
             var node = new Node("Rat");
@@ -110,7 +120,7 @@ final public class Test extends BaseTest {
         }
         {
             var node = new Node("Dog", new Node("Rat"));
-            testInsertAfterCase(
+            testInsertBeforeCase(
                     "Inserting before the first node",
                     node,
                     "Cat",
@@ -118,11 +128,26 @@ final public class Test extends BaseTest {
                     new Node("Cat", new Node("Dog", new Node("Rat")))
             );
         }
+        {
+            var node = new Node("Cat");
+            testInsertBeforeCase(
+                    "Inserting in the list with nodes that have similar values (a new node expected to be inserted before the specified node)",
+                    new Node("Cat", new Node("Dog", node)),
+                    "Rat",
+                    node,
+                    new Node("Cat", new Node("Dog", new Node("Rat", new Node("Cat"))))
+            );
+        }
 
         showTotalResult();
     }
 
     private void testInsertFirstCase(String caseName, Node firstNode, String value, Node expectedFirstNode) {
+        var arguments = new HashMap<String, String>() {{
+            put("list's nodes", nodeToString(firstNode));
+            put("value", String.valueOf(value));
+        }};
+
         var task = new Task(firstNode);
         task.insertFirst(value);
         var isSuccess = isFirstNodesEquals(task.firstNode, expectedFirstNode);
@@ -130,10 +155,7 @@ final public class Test extends BaseTest {
         logCase(
                 "void insertFirst(String value)",
                 caseName,
-                new HashMap<>() {{
-                    put("list's nodes", nodeToString(firstNode));
-                    put("value", String.valueOf(value));
-                }},
+                arguments,
                 nodeToString(expectedFirstNode),
                 nodeToString(task.firstNode),
                 isSuccess
@@ -141,6 +163,11 @@ final public class Test extends BaseTest {
     }
 
     private void testInsertLastCase(String caseName, Node firstNode, String value, Node expectedFirstNode) {
+        var arguments = new HashMap<String, String>() {{
+            put("list's nodes", nodeToString(firstNode));
+            put("value", String.valueOf(value));
+        }};
+
         var task = new Task(firstNode);
         task.insertLast(value);
         var isSuccess = isFirstNodesEquals(task.firstNode, expectedFirstNode);
@@ -148,10 +175,7 @@ final public class Test extends BaseTest {
         logCase(
                 "void insertLast(String value)",
                 caseName,
-                new HashMap<>() {{
-                    put("list's nodes", nodeToString(firstNode));
-                    put("value", String.valueOf(value));
-                }},
+                arguments,
                 nodeToString(expectedFirstNode),
                 nodeToString(task.firstNode),
                 isSuccess
@@ -159,18 +183,21 @@ final public class Test extends BaseTest {
     }
 
     private void testInsertAfterCase(String caseName, Node firstNode, String value, Node prevNode, Node expectedFirstNode) {
+        var arguments = new HashMap<String, String>() {{
+            put("list's nodes", nodeToString(firstNode));
+            put("value", String.valueOf(value));
+            put("previousNode", String.valueOf(prevNode));
+        }};
+
         var task = new Task(firstNode);
+
         task.insertAfter(value, prevNode);
         var isSuccess = isFirstNodesEquals(task.firstNode, expectedFirstNode);
 
         logCase(
                 "void insertAfter(String value, Node previousNode)",
                 caseName,
-                new HashMap<>() {{
-                    put("list's nodes", nodeToString(firstNode));
-                    put("value", String.valueOf(value));
-                    put("previousNode", String.valueOf(prevNode));
-                }},
+                arguments,
                 nodeToString(expectedFirstNode),
                 nodeToString(task.firstNode),
                 isSuccess
@@ -178,6 +205,12 @@ final public class Test extends BaseTest {
     }
 
     private void testInsertBeforeCase(String caseName, Node firstNode, String value, Node nextNode, Node expectedFirstNode) {
+        var arguments = new HashMap<String, String>() {{
+            put("list's nodes", nodeToString(firstNode));
+            put("value", String.valueOf(value));
+            put("nextNode", String.valueOf(nextNode));
+        }};
+
         var task = new Task(firstNode);
         task.insertBefore(value, nextNode);
         var isSuccess = isFirstNodesEquals(task.firstNode, expectedFirstNode);
@@ -185,11 +218,7 @@ final public class Test extends BaseTest {
         logCase(
                 "void insertBefore(String value, Node nextNode)",
                 caseName,
-                new HashMap<>() {{
-                    put("list's nodes", nodeToString(firstNode));
-                    put("value", String.valueOf(value));
-                    put("nextNode", String.valueOf(nextNode));
-                }},
+                arguments,
                 nodeToString(expectedFirstNode),
                 nodeToString(task.firstNode),
                 isSuccess
