@@ -1,7 +1,7 @@
-# Creating a linked list. Part 1: Searching
+# Creating a Double Linked List. Part 1: Searching
 
-In the next several tasks you will implement your own Linked List collection. In this task you should implement methods
-for searching in the collection. You have two classes: the `Task` which represents the collection and the `Node`
+In the next several tasks you will implement your own Double Linked List collection. In this task you should implement
+methods for searching in the collection. You have two classes: the `Task` which represents the collection and the `Node`
 which represents values. You should implement next methods:
 
 * `Node Task.findByIndex(int index)` which takes the `int index` argument. It should find and return the node with

@@ -3,14 +3,10 @@ package com.haruatari.task19;
 final class Node {
     public final String value;
     public Node next = null;
+    public Node prev = null;
 
     public Node(String value) {
         this.value = value;
-    }
-
-    public Node(String value, Node nextNode) {
-        this.value = value;
-        this.next = nextNode;
     }
 
     @Override

@@ -20,88 +20,125 @@ final public class Test extends BaseTest {
 
     @Override
     public void run() {
+        var cat = new Node("Cat");
+        var dog = new Node("Dog");
+        cat.next = dog;
+        dog.prev = cat;
+        var rat = new Node("Rat");
+        dog.next = rat;
+        rat.prev = dog;
+        var bird = new Node("Bird");
+        rat.next = bird;
+        bird.prev = rat;
+
         testFindByIndexCase(
                 "Searching for the first index",
-                new Task(new Node("Cat", new Node("Dog", new Node("Rat", new Node("Bird"))))),
+                cat,
+                bird,
                 0,
-                new Node("Cat")
+                cat
         );
         testFindByIndexCase(
                 "Searching for a not edged index",
-                new Task(new Node("Cat", new Node("Dog", new Node("Rat", new Node("Bird"))))),
+                cat,
+                bird,
                 2,
-                new Node("Rat")
+                rat
         );
         testFindByIndexCase(
                 "Searching for the last index",
-                new Task(new Node("Cat", new Node("Dog", new Node("Rat", new Node("Bird"))))),
+                cat,
+                bird,
                 3,
-                new Node("Bird")
+                bird
         );
         testFindByIndexCase(
                 "Searching for a not existing index",
-                new Task(new Node("Cat", new Node("Dog", new Node("Rat", new Node("Bird"))))),
+                cat,
+                bird,
                 4,
                 null
         );
-        testFindByIndexCase(
-                "Searching for the only existing index",
-                new Task(new Node("Cat")),
-                0,
-                new Node("Cat")
-        );
-        testFindByIndexCase(
-                "Searching for a not existing index in the one-element list",
-                new Task(new Node("Cat")),
-                1,
-                null
-        );
+        {
+            var node = new Node("Cat");
+            testFindByIndexCase(
+                    "Searching for the only existing index",
+                    node,
+                    node,
+                    0,
+                    node
+            );
+        }
+        {
+            var node = new Node("Cat");
+            testFindByIndexCase(
+                    "Searching for a not existing index in the one-element list",
+                    node,
+                    node,
+                    1,
+                    null
+            );
+        }
         testFindByIndexCase(
                 "Searching in the empty list",
-                new Task(),
+                null,
+                null,
                 1,
                 null
         );
 
         testFindByValueCase(
                 "Searching for the first value",
-                new Task(new Node("Cat", new Node("Dog", new Node("Rat", new Node("Bird"))))),
+                cat,
+                bird,
                 "Cat",
-                new Node("Cat")
+                cat
         );
         testFindByValueCase(
                 "Searching for a not edged value",
-                new Task(new Node("Cat", new Node("Dog", new Node("Rat", new Node("Bird"))))),
+                cat,
+                bird,
                 "Rat",
-                new Node("Rat")
+                rat
         );
         testFindByValueCase(
                 "Searching for the last value",
-                new Task(new Node("Cat", new Node("Dog", new Node("Rat", new Node("Bird"))))),
+                cat,
+                bird,
                 "Bird",
-                new Node("Bird")
+                bird
         );
         testFindByValueCase(
                 "Searching for a not existing value",
-                new Task(new Node("Cat", new Node("Dog", new Node("Rat", new Node("Bird"))))),
+                cat,
+                bird,
                 "Nicolas Cage",
                 null
         );
-        testFindByValueCase(
-                "Searching for the only existing value",
-                new Task(new Node("Cat")),
-                "Cat",
-                new Node("Cat")
-        );
-        testFindByValueCase(
-                "Searching for a not existing value in the one-element list",
-                new Task(new Node("Cat")),
-                "Nicolas Cage",
-                null
-        );
+        {
+            var node = new Node("Cat");
+            testFindByValueCase(
+                    "Searching for the only existing value",
+                    node,
+                    node,
+                    "Cat",
+                    node
+            );
+        }
+        {
+            var node = new Node("Cat");
+            testFindByValueCase(
+                    "Searching for the only existing value",
+                    node,
+                    node,
+                    "Nicolas Cage",
+                    null
+            );
+        }
         testFindByValueCase(
                 "Searching in the empty list",
-                new Task(),
+                null,
+                null,
                 "Nicolas Cage",
                 null
         );
@@ -109,34 +146,36 @@ final public class Test extends BaseTest {
         showTotalResult();
     }
 
-    private void testFindByIndexCase(String caseName, Task list, int index, Node expected) {
-        var actual = list.findByIndex(index);
+    private void testFindByIndexCase(String caseName, Node firstNode, Node lastNode, int index, Node expected) {
+        var arguments = new HashMap<String, String>() {{
+            put("list's nodes", nodeToString(firstNode));
+            put("index", String.valueOf(index));
+        }};
+        var actual = new Task(firstNode, lastNode).findByIndex(index);
         var isSuccess = Objects.equals(expected, actual);
 
         logCase(
                 "Node findByIndex(int index)",
                 caseName,
-                new HashMap<>() {{
-                    put("list's nodes", nodeToString(list.firstNode));
-                    put("index", String.valueOf(index));
-                }},
+                arguments,
                 String.valueOf(expected),
                 String.valueOf(actual),
                 isSuccess
         );
     }
 
-    private void testFindByValueCase(String caseName, Task list, String value, Node expected) {
-        var actual = list.findByValue(value);
+    private void testFindByValueCase(String caseName, Node firstNode, Node lastNode, String value, Node expected) {
+        var arguments = new HashMap<String, String>() {{
+            put("list's nodes", nodeToString(firstNode));
+            put("value", value);
+        }};
+        var actual = new Task(firstNode, lastNode).findByValue(value);
         var isSuccess = Objects.equals(expected, actual);
 
         logCase(
                 "Node findByValue(String value)",
                 caseName,
-                new HashMap<>() {{
-                    put("list's nodes", nodeToString(list.firstNode));
-                    put("value", value);
-                }},
+                arguments,
                 String.valueOf(expected),
                 String.valueOf(actual),
                 isSuccess
@@ -148,8 +187,11 @@ final public class Test extends BaseTest {
 
         while (node != null) {
             var str = String.valueOf(node);
-            if (list.isEmpty()) {
+            if (node.prev == null) {
                 str += " <-- firstNode";
+            }
+            if (node.next == null) {
+                str += " <-- lastNode";
             }
             list.add(str);
             node = node.next;
