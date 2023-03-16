@@ -34,5 +34,4 @@ Each task is in the separate package (for example `org.haruatari.task10`) and ha
 | [Task 16](src/com/haruatari/task16) | Searching for the most popular posts on the social network. Part 1           | arrays, objects |
 | [Task 17](src/com/haruatari/task17) | Searching for the most popular posts on the social network. Part 2           | arrays, objects |
 | [Task 18](src/com/haruatari/task18) | Searching for the most popular posts on the social network. Part 3           | arrays, objects |
-| [Task 19](src/com/haruatari/task19) | Creating a linked list. Part 1: Searching                                    | objects         |
-| [Task 20](src/com/haruatari/task20) | Creating a linked list. Part 2: Inserting                                    | objects         |
+| [Task 19](src/com/haruatari/task19) | Searching in the Double Linked List                                          | objects         |

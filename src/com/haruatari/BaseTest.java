@@ -42,11 +42,23 @@ abstract public class BaseTest {
             String actual,
             boolean isSuccess
     ) {
+        logCase(methodName, caseName, arguments, expected, actual, isSuccess, null);
+    }
+
+    protected void logCase(
+            String methodName,
+            String caseName,
+            HashMap<String, String> arguments,
+            String expected,
+            String actual,
+            boolean isSuccess,
+            String errorDescription
+    ) {
         var sb = new StringBuilder();
         sb.append(logMethodName(methodName));
         sb.append(logCaseName(caseName));
         sb.append(logCaseArguments(arguments));
-        sb.append(logCaseResults(expected, actual, isSuccess));
+        sb.append(logCaseResults(expected, actual, isSuccess, errorDescription));
 
         if (isSuccess) {
             successCasesOutput.append(sb);
@@ -101,7 +113,7 @@ abstract public class BaseTest {
         return sb.toString();
     }
 
-    private String logCaseResults(String expected, String actual, boolean isSuccess) {
+    private String logCaseResults(String expected, String actual, boolean isSuccess, String errorDescription) {
         var sb = new StringBuilder();
         sb.append(COLOUR_HIGHLIGHT + "Result:" + RESET_STYLE + "\n");
         sb.append("Expected: " + expected + "\n");
@@ -112,6 +124,9 @@ abstract public class BaseTest {
             sb.append(COLOUR_SUCCESS + "Success" + RESET_STYLE + "\n");
         } else {
             sb.append(COLOUR_ERROR + "Failed" + RESET_STYLE + "\n");
+        }
+        if (!isSuccess && errorDescription != null) {
+            sb.append("Error description: " + errorDescription);
         }
 
         return sb.toString();
