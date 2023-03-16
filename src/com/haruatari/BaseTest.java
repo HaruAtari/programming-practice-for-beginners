@@ -1,6 +1,7 @@
 package com.haruatari;
 
 import java.util.HashMap;
+import java.util.Map;
 
 abstract public class BaseTest {
     final static private String COLOUR_ERROR = "\u001B[31m";
@@ -8,12 +9,14 @@ abstract public class BaseTest {
     final static private String COLOUR_HIGHLIGHT = "\u001B[34m";
     final static private String BACKGROUND_ERROR = "\u001B[41m";
     final static private String BACKGROUND_SUCCESS = "\u001B[42m";
+    final static private String BACKGROUND_WHITE = "\u001B[47m";
     final static private String RESET_STYLE = "\u001B[0m";
 
-    private StringBuilder successCasesOutput = new StringBuilder();
-    private StringBuilder failedCasesOutput = new StringBuilder();
+    final private StringBuilder successCasesOutput = new StringBuilder();
+    final private StringBuilder failedCasesOutput = new StringBuilder();
 
-    private int totalCasesNumber = 0;
+    final private Map<String, int[]> methodsStatistic = new HashMap<>();
+    private int failedCasesNumber = 0;
     private int successCasesNumber = 0;
 
     abstract public void run();
@@ -51,9 +54,16 @@ abstract public class BaseTest {
             failedCasesOutput.append(sb);
         }
 
-        totalCasesNumber++;
+        if (!methodsStatistic.containsKey(methodName)) {
+            methodsStatistic.put(methodName, new int[]{0, 0});
+        }
+
         if (isSuccess) {
             successCasesNumber++;
+            methodsStatistic.get(methodName)[0]++;
+        } else {
+            failedCasesNumber++;
+            methodsStatistic.get(methodName)[1]++;
         }
     }
 
@@ -97,6 +107,7 @@ abstract public class BaseTest {
         sb.append("Expected: " + expected + "\n");
         sb.append("Actual: " + actual + "\n");
         sb.append("Summary: ");
+
         if (isSuccess) {
             sb.append(COLOUR_SUCCESS + "Success" + RESET_STYLE + "\n");
         } else {
@@ -110,27 +121,42 @@ abstract public class BaseTest {
         System.out.println(successCasesOutput.toString());
         System.out.println(failedCasesOutput.toString());
 
-        var failedCasesNumber = totalCasesNumber - successCasesNumber;
-        int longestValueLength = Math.max(
-                Math.max(
-                        String.valueOf(totalCasesNumber).length(),
-                        String.valueOf(successCasesNumber).length()
-                ),
-                String.valueOf(failedCasesNumber).length()
-        );
-
         System.out.println("----------------------------------------------------------------------------------------------------");
         System.out.println();
 
-        System.out.print("  Total test case: " + totalCasesNumber + "  ");
-        System.out.println(" ".repeat(longestValueLength - String.valueOf(totalCasesNumber).length()));
+        var longestName = 6; // "method"
+        var longestSuccessNumber = 7; // "Success"
+        var longestFailedNumber = 6; // "failed"
 
-        System.out.print(BACKGROUND_SUCCESS + "  Success:         " + successCasesNumber + "  ");
-        System.out.print(" ".repeat(longestValueLength - String.valueOf(successCasesNumber).length()));
-        System.out.println(RESET_STYLE);
+        for (var methodName : methodsStatistic.keySet()) {
+            var statistic = methodsStatistic.get(methodName);
 
-        System.out.print(BACKGROUND_ERROR + "  Failed:          " + failedCasesNumber + "  ");
-        System.out.print(" ".repeat(longestValueLength - String.valueOf(failedCasesNumber).length()));
-        System.out.println(RESET_STYLE);
+            if (methodName.length() > longestName) {
+                longestName = methodName.length();
+            }
+            if (String.valueOf(statistic[0]).length() > longestSuccessNumber) {
+                longestSuccessNumber = String.valueOf(statistic[0]).length();
+            }
+            if (String.valueOf(statistic[1]).length() > longestFailedNumber) {
+                longestFailedNumber = String.valueOf(statistic[1]).length();
+            }
+        }
+
+        System.out.print("| " + COLOUR_HIGHLIGHT + "Method" + " ".repeat(longestName - 6) + RESET_STYLE + " ");
+        System.out.print("| " + COLOUR_HIGHLIGHT + "Success" + " ".repeat(longestSuccessNumber - 7) + RESET_STYLE + " ");
+        System.out.print("| " + COLOUR_HIGHLIGHT + "Failed" + " ".repeat(longestFailedNumber - 6) + RESET_STYLE + " |");
+        System.out.println();
+
+        for (var methodData : methodsStatistic.entrySet()) {
+            System.out.print("| " + methodData.getKey() + " ".repeat(longestName - methodData.getKey().length()) + " ");
+            System.out.print("| " + COLOUR_SUCCESS + methodData.getValue()[0] + " ".repeat(longestSuccessNumber - String.valueOf(methodData.getValue()[0]).length()) + RESET_STYLE + " ");
+            System.out.print("| " + COLOUR_ERROR + methodData.getValue()[1] + " ".repeat(longestFailedNumber - String.valueOf(methodData.getValue()[1]).length()) + RESET_STYLE + " |");
+            System.out.println();
+        }
+
+        System.out.print("|" + BACKGROUND_WHITE + " Total" + " ".repeat(longestName - 5) + " " + RESET_STYLE);
+        System.out.print("|" + BACKGROUND_SUCCESS + " " + successCasesNumber + " ".repeat(longestSuccessNumber - String.valueOf(successCasesNumber).length()) + " " + RESET_STYLE);
+        System.out.print("|" + BACKGROUND_ERROR + " " + failedCasesNumber + " ".repeat(longestFailedNumber - String.valueOf(failedCasesNumber).length()) + " " + RESET_STYLE + "|");
+        System.out.println();
     }
 }
