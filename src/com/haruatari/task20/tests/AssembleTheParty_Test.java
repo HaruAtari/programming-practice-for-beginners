@@ -1,6 +1,6 @@
 package com.haruatari.task20.tests;
 
-import com.haruatari.Helper;
+import com.haruatari._src.Helper;
 import com.haruatari._src.loggers.CaseLogger;
 import com.haruatari._src.tests.MethodTest;
 import com.haruatari.task20.Friend;

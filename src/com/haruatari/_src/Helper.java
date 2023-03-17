@@ -1,4 +1,4 @@
-package com.haruatari;
+package com.haruatari._src;
 
 import java.util.Arrays;
 import java.util.List;

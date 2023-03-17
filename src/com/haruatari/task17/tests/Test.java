@@ -1,11 +1,13 @@
 package com.haruatari.task17.tests;
 
+import com.haruatari._src.loader.TaskTest;
 import com.haruatari._src.tests.ClassTest;
 import com.haruatari._src.tests.MethodTest;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@TaskTest(name = "Task 17", order = 17)
 public final class Test extends ClassTest {
     public static void main(String[] args) {
         new Test().run();

@@ -1,6 +1,6 @@
 package com.haruatari.task19;
 
-import com.haruatari.Helper;
+import com.haruatari._src.Helper;
 
 import java.util.ArrayList;
 

@@ -3,11 +3,23 @@ package com.haruatari._src.loggers;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ClassLogger extends Logger {
+public class ClassLogger extends Loggable {
     private List<MethodLogger> methodLoggers = new ArrayList<>();
+    private int successCount = 0;
+    private int failedCount = 0;
 
     public void addMethodLogger(MethodLogger methodLogger) {
         methodLoggers.add(methodLogger);
+        successCount += methodLogger.getSuccessCount();
+        failedCount += methodLogger.getFailedCount();
+    }
+
+    public int getSuccessCount() {
+        return successCount;
+    }
+
+    public int getFailedCount() {
+        return failedCount;
     }
 
     @Override

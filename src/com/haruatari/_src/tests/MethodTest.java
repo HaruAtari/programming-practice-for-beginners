@@ -12,14 +12,18 @@ abstract public class MethodTest extends Test {
     abstract protected Map<String, Consumer<CaseLogger>> getCases();
 
     final public void run() {
-        run(false);
+        run(false, false);
     }
 
     final public MethodLogger runPartially() {
-        return run(true);
+        return run(true, false);
     }
 
-    private MethodLogger run(boolean partially) {
+    final public MethodLogger runSilently() {
+        return run(true, true);
+    }
+
+    private MethodLogger run(boolean partially, boolean silently) {
         var summary = new MethodLogger(getMethodName());
 
         for (var set : getCases().entrySet()) {
@@ -27,8 +31,9 @@ abstract public class MethodTest extends Test {
 
             set.getValue().accept(logger);
 
-            System.out.println(logger);
-
+            if (!silently) {
+                System.out.println(logger);
+            }
             if (logger.setIsSuccess()) {
                 summary.increaseSuccess();
             } else {

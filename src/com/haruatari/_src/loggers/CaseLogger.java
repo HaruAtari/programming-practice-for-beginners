@@ -3,7 +3,7 @@ package com.haruatari._src.loggers;
 import java.util.HashMap;
 import java.util.Map;
 
-public class CaseLogger extends Logger {
+public class CaseLogger extends Loggable {
     private String methodName;
     private String caseDescription;
     private Map<String, String> arguments = new HashMap();

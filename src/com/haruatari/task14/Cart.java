@@ -1,6 +1,6 @@
 package com.haruatari.task14;
 
-import com.haruatari.Helper;
+import com.haruatari._src.Helper;
 
 final class Cart {
     public final Product[] products;

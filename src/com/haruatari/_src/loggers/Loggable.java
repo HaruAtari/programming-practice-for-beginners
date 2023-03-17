@@ -1,6 +1,6 @@
 package com.haruatari._src.loggers;
 
-abstract public class Logger {
+abstract public class Loggable {
     final static protected String COLOUR_ERROR = "\u001B[31m";
     final static protected String COLOUR_SUCCESS = "\u001B[32m";
     final static protected String COLOUR_HIGHLIGHT = "\u001B[34m";

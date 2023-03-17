@@ -1,8 +1,8 @@
 package com.haruatari.task15;
 
 import com.haruatari.BaseTest;
-import com.haruatari.Helper;
 import com.haruatari.TaskNumber;
+import com.haruatari._src.Helper;
 
 import java.util.HashMap;
 

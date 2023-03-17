@@ -1,6 +1,6 @@
 package com.haruatari._src.loggers;
 
-public class MethodLogger extends Logger {
+public class MethodLogger extends Loggable {
     private final String methodName;
     private int successCount = 0;
     private int failedCount = 0;
