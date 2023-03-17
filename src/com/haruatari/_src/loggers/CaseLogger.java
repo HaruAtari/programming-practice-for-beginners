@@ -106,7 +106,7 @@ public class CaseLogger extends Logger {
             sb.append(COLOUR_ERROR + "Failed" + RESET_STYLE);
         }
         if (!isSuccess && hint != null) {
-            sb.append("\nError description: " + hint);
+            sb.append(COLOUR_HINT + "\nHint: " + hint + RESET_STYLE);
         }
 
         return sb.toString();

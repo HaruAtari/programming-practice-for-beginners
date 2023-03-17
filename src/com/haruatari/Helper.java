@@ -1,6 +1,7 @@
 package com.haruatari;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.stream.Collectors;
 
 abstract public class Helper {
@@ -15,5 +16,27 @@ abstract public class Helper {
         }
 
         return "[\n" + Arrays.stream(array).map(i -> "  ".repeat(level + 1) + i).collect(Collectors.joining(",\n")) + "\n" + " ".repeat(level) + "]";
+    }
+
+    public static String alignList(List<?> list) {
+        return alignList(list, 0);
+    }
+
+    public static String alignList(List<?> list, int level) {
+        if (list.size() <= 1) {
+            return "List(" +
+                list
+                    .stream()
+                    .map(String::valueOf)
+                    .collect(Collectors.joining(", "))
+                + ")";
+        }
+
+        return "List(\n" +
+            list
+                .stream()
+                .map(i -> "  ".repeat(level + 1) + i)
+                .collect(Collectors.joining(",\n"))
+            + "\n" + " ".repeat(level) + ")";
     }
 }
