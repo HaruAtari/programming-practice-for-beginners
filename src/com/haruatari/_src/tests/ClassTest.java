@@ -8,7 +8,7 @@ abstract public class ClassTest extends Test {
     abstract protected List<MethodTest> getMethodTests();
 
     final protected void run() {
-        var logger = new ClassLogger("Task 8");
+        var logger = new ClassLogger();
         for (var methodTest : getMethodTests()) {
             logger.addMethodLogger(methodTest.runPartially());
         }

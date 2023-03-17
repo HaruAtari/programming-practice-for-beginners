@@ -31,18 +31,26 @@ public class MethodLogger extends Logger {
 
     @Override
     public String toString() {
+        var successRate = 100 / (failedCount + successCount) * successCount;
         int longestValueLength = Math.max(
+            Math.max(
                 String.valueOf(failedCount).length(),
                 String.valueOf(successCount).length()
+            ),
+            (successRate + "%").length()
         );
 
+
         return new StringBuilder()
-                .append(separator)
-                .append(BACKGROUND_SUCCESS + "  Success:         " + successCount + "  ")
-                .append(" ".repeat(longestValueLength - String.valueOf(successCount).length()) + RESET_STYLE)
-                .append("\n")
-                .append(BACKGROUND_ERROR + "  Failed:          " + failedCount + "  ")
-                .append(" ".repeat(longestValueLength - String.valueOf(failedCount).length()) + RESET_STYLE)
-                .toString();
+            .append(separator)
+            .append(BACKGROUND_SUCCESS + "  Success:            " + successCount + "  ")
+            .append(" ".repeat(longestValueLength - String.valueOf(successCount).length()) + RESET_STYLE)
+            .append("\n")
+            .append(BACKGROUND_ERROR + "  Failed:             " + failedCount + "  ")
+            .append(" ".repeat(longestValueLength - String.valueOf(failedCount).length()) + RESET_STYLE)
+            .append("\n")
+            .append("  Success percentage: " + successRate + "%  ")
+            .append(" ".repeat(longestValueLength - String.valueOf(failedCount).length()) + RESET_STYLE)
+            .toString();
     }
 }

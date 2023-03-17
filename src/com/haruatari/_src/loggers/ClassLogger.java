@@ -5,11 +5,6 @@ import java.util.List;
 
 public class ClassLogger extends Logger {
     private List<MethodLogger> methodLoggers = new ArrayList<>();
-    private String taskName;
-
-    public ClassLogger(String taskName) {
-        this.taskName = taskName;
-    }
 
     public void addMethodLogger(MethodLogger methodLogger) {
         methodLoggers.add(methodLogger);
@@ -17,11 +12,10 @@ public class ClassLogger extends Logger {
 
     @Override
     public String toString() {
-
-
-        var longestName = 6; // "method"
+        var longestName = 6; // "Method"
         var longestSuccessNumber = 7; // "Success"
-        var longestFailedNumber = 6; // "failed"
+        var longestFailedNumber = 6; // "Failed"
+        var longestSuccessRate = 18; // "Success percentage"
 
         var totalSuccess = 0;
         var totalFailed = 0;
@@ -36,24 +30,31 @@ public class ClassLogger extends Logger {
         }
 
         var sb = new StringBuilder()
-                .append(separator)
-                .append("| " + COLOUR_HIGHLIGHT + "Method" + " ".repeat(longestName - 6) + RESET_STYLE + " ")
-                .append("| " + COLOUR_HIGHLIGHT + "Success" + " ".repeat(longestSuccessNumber - 7) + RESET_STYLE + " ")
-                .append("| " + COLOUR_HIGHLIGHT + "Failed" + " ".repeat(longestFailedNumber - 6) + RESET_STYLE + " |")
-                .append("\n");
+            .append(separator)
+            .append("| " + COLOUR_HIGHLIGHT + "Method" + " ".repeat(longestName - 6) + RESET_STYLE + " ")
+            .append("| " + COLOUR_HIGHLIGHT + "Success" + " ".repeat(longestSuccessNumber - 7) + RESET_STYLE + " ")
+            .append("| " + COLOUR_HIGHLIGHT + "Failed" + " ".repeat(longestFailedNumber - 6) + RESET_STYLE + " ")
+            .append("| " + COLOUR_HIGHLIGHT + "Success percentage" + RESET_STYLE + " |")
+            .append("\n");
 
         for (var methodLogger : methodLoggers) {
+            var successRate = 100 / (methodLogger.getFailedCount() + methodLogger.getSuccessCount()) * methodLogger.getSuccessCount();
+
             sb
-                    .append("| " + methodLogger.getMethodName() + " ".repeat(longestName - methodLogger.getMethodName().length()) + " ")
-                    .append("| " + COLOUR_SUCCESS + methodLogger.getSuccessCount() + " ".repeat(longestSuccessNumber - String.valueOf(methodLogger.getSuccessCount()).length()) + RESET_STYLE + " ")
-                    .append("| " + COLOUR_ERROR + methodLogger.getFailedCount() + " ".repeat(longestFailedNumber - String.valueOf(methodLogger.getFailedCount()).length()) + RESET_STYLE + " |")
-                    .append("\n");
+                .append("| " + methodLogger.getMethodName() + " ".repeat(longestName - methodLogger.getMethodName().length()) + " ")
+                .append("| " + COLOUR_SUCCESS + methodLogger.getSuccessCount() + " ".repeat(longestSuccessNumber - String.valueOf(methodLogger.getSuccessCount()).length()) + RESET_STYLE + " ")
+                .append("| " + COLOUR_ERROR + methodLogger.getFailedCount() + " ".repeat(longestFailedNumber - String.valueOf(methodLogger.getFailedCount()).length()) + RESET_STYLE + " ")
+                .append("| " + successRate + "%" + " ".repeat(longestSuccessRate - String.valueOf(successRate).length() - 1) + " |")
+                .append("\n");
         }
 
+
+        var totalSuccessRate = 100 / (totalFailed + totalSuccess) * totalSuccess;
         sb
-                .append("|" + BACKGROUND_WHITE + " Total" + " ".repeat(longestName - 5) + " " + RESET_STYLE)
-                .append("|" + BACKGROUND_SUCCESS + " " + totalSuccess + " ".repeat(longestSuccessNumber - String.valueOf(totalSuccess).length()) + " " + RESET_STYLE)
-                .append("|" + BACKGROUND_ERROR + " " + totalFailed + " ".repeat(longestFailedNumber - String.valueOf(totalFailed).length()) + " " + RESET_STYLE + "|");
+            .append("|" + BACKGROUND_WHITE + " Total" + " ".repeat(longestName - 4) + RESET_STYLE)
+            .append("|" + BACKGROUND_SUCCESS + " " + totalSuccess + " ".repeat(longestSuccessNumber - String.valueOf(totalSuccess).length() + 1) + RESET_STYLE)
+            .append("|" + BACKGROUND_ERROR + " " + totalFailed + " ".repeat(longestFailedNumber - String.valueOf(totalFailed).length() + 1) + RESET_STYLE)
+            .append("|" + BACKGROUND_WHITE + " " + totalSuccessRate + "%" + " ".repeat(longestSuccessRate - String.valueOf(totalSuccessRate).length()) + RESET_STYLE + "|");
 
         return sb.toString();
     }
