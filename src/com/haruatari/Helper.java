@@ -2,6 +2,7 @@ package com.haruatari;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 abstract public class Helper {
@@ -38,5 +39,40 @@ abstract public class Helper {
                 .map(i -> "  ".repeat(level + 1) + i)
                 .collect(Collectors.joining(",\n"))
             + "\n" + " ".repeat(level) + ")";
+    }
+
+    public static String alignMap(Map<?, ?> map) {
+        return alignMap(map, 0);
+    }
+
+    public static String alignMap(Map<?, ?> map, int level) {
+        var result = new StringBuilder("Map(");
+
+        if (map.size() <= 1) {
+            for (var item : map.entrySet()) {
+                result
+                    .append(item.getKey())
+                    .append(": ")
+                    .append(item.getValue());
+            }
+
+            return result
+                .append(")")
+                .toString();
+        }
+
+        for (var item : map.entrySet()) {
+            result
+                .append("\n")
+                .append("  ".repeat(level + 1))
+                .append(item.getKey())
+                .append(" => ")
+                .append(item.getValue());
+
+        }
+
+        return result
+            .append("\n)")
+            .toString();
     }
 }

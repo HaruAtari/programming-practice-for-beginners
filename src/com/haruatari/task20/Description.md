@@ -1,6 +1,6 @@
 # Visiting a restaurant with friends. Part 1
 
-Yes are going to visit restaurant with your friends, and now you are assembling the party. You have to decide which of
+You are going to visit restaurant with your friends, and now you are assembling the party. You have to decide which of
 your friends will be invited. Each of your friends is represented as an instance of the `Friend` class which have the
 `boolean isBusy` and `String name` fields. If `isBusy` is `true` it means that your friend is busy and can't go with
 you. Also, you can't invite as many friends as you want because you were able to book the limited amount of seats.

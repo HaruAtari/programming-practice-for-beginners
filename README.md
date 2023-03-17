@@ -36,3 +36,4 @@ Each task is in the separate package (for example `org.haruatari.task10`) and ha
 | [Task 17](src/com/haruatari/task17) | Searching for the most popular posts on the social network. Part 2           | arrays, objects             |
 | [Task 18](src/com/haruatari/task18) | Searching for the most popular posts on the social network. Part 3           | arrays, objects             |
 | [Task 20](src/com/haruatari/task20) | Visiting a restaurant with friends. Part 1                                   | collections, objects        |
+| [Task 21](src/com/haruatari/task21) | Visiting a restaurant with friends. Part 2                                   | collections, objects        |
