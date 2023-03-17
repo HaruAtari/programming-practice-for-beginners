@@ -34,7 +34,7 @@ final class Max_Test extends MethodTest {
     }
 
     private void runCase(CaseLogger logger, int[] input, int expected) {
-        var actual = new Task().min(input);
+        var actual = new Task().max(input);
 
         logger
                 .setArguments(new HashMap<>() {{
