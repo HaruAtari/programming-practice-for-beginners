@@ -1,6 +1,6 @@
 package com.haruatari.task9;
 
-final class Segment {
+final public class Segment {
     public final Point beginning;
     public final Point end;
 

@@ -1,6 +1,6 @@
 package com.haruatari.task15;
 
-final class Discount {
+final public class Discount {
     public final int discount;
     public final String productName;
 

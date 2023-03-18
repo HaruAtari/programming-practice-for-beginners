@@ -49,7 +49,7 @@ public class MethodLogger extends Loggable {
             .append(BACKGROUND_ERROR + "  Failed:             " + failedCount + "  ")
             .append(" ".repeat(longestValueLength - String.valueOf(failedCount).length()) + RESET_STYLE)
             .append("\n")
-            .append("  Success percentage: " + successRate + "%  ")
+            .append(BACKGROUND_WHITE + "  Success percentage: " + successRate + "%  " + RESET_STYLE)
             .append(" ".repeat(longestValueLength - String.valueOf(failedCount).length()) + RESET_STYLE)
             .toString();
     }

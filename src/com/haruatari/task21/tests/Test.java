@@ -7,7 +7,7 @@ import com.haruatari._src.tests.MethodTest;
 import java.util.ArrayList;
 import java.util.List;
 
-@TaskTest(name = "Task 21", order = 21)
+@TaskTest(21)
 public final class Test extends ClassTest {
     public static void main(String[] args) {
         new Test().run();

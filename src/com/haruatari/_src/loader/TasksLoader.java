@@ -36,9 +36,8 @@ public class TasksLoader {
                 if (annotation != null) {
                     try {
                         result.add(new Task(
-                                (ClassTest) classItem.getDeclaredConstructor().newInstance(),
-                                annotation.name(),
-                                annotation.order()
+                            (ClassTest) classItem.getDeclaredConstructor().newInstance(),
+                            annotation.value()
                         ));
                     } catch (InstantiationException e) {
                         throw new RuntimeException(e);
@@ -58,8 +57,8 @@ public class TasksLoader {
 
     private Set<Class> findClassesInPackage(String packageName) {
         InputStream stream = ClassLoader
-                .getSystemClassLoader()
-                .getResourceAsStream(packageName.replaceAll("[.]", "/"));
+            .getSystemClassLoader()
+            .getResourceAsStream(packageName.replaceAll("[.]", "/"));
 
         if (stream == null) {
             return null;
@@ -67,9 +66,9 @@ public class TasksLoader {
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(stream));
         return reader.lines()
-                .filter(line -> line.endsWith(".class"))
-                .map(line -> getClass(line, packageName))
-                .collect(Collectors.toSet());
+            .filter(line -> line.endsWith(".class"))
+            .map(line -> getClass(line, packageName))
+            .collect(Collectors.toSet());
     }
 
     private Class getClass(String className, String packageName) {

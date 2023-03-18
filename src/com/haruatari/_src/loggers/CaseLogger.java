@@ -17,14 +17,18 @@ public class CaseLogger extends Loggable {
         this.caseDescription = caseDescription;
     }
 
+    public CaseLogger(String methodName) {
+        this.methodName = methodName;
+    }
+
     @Override
     public String toString() {
         return new StringBuilder()
-                .append(methodNameToString())
-                .append(caseDescriptionToString())
-                .append(argumentsToString())
-                .append(resultsToString())
-                .toString();
+            .append(methodNameToString())
+            .append(caseDescriptionToString())
+            .append(argumentsToString())
+            .append(resultsToString())
+            .toString();
     }
 
     public boolean setIsSuccess() {
@@ -74,6 +78,10 @@ public class CaseLogger extends Loggable {
     }
 
     private String caseDescriptionToString() {
+        if (caseDescription == null) {
+            return "\n";
+        }
+
         var sb = new StringBuilder();
         sb.append(COLOUR_HIGHLIGHT + "Case: " + RESET_STYLE);
         sb.append(caseDescription + "\n\n");

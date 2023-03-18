@@ -27,7 +27,9 @@ abstract public class MethodTest extends Test {
         var summary = new MethodLogger(getMethodName());
 
         for (var set : getCases().entrySet()) {
-            var logger = new CaseLogger(getMethodName(), set.getKey());
+            var logger = set.getKey().chars().allMatch(Character::isDigit)
+                ? new CaseLogger(getMethodName())
+                : new CaseLogger(getMethodName(), set.getKey());
 
             set.getValue().accept(logger);
 

@@ -1,6 +1,6 @@
 package com.haruatari.task1;
 
-final class Task {
+public class Task {
     public int sum(int x, int y) {
         return -100; // TODO: Remove this line and put your code here.
     }

@@ -78,13 +78,13 @@ final class FindByIndex_Test extends MethodTest {
     private void runCase(CaseLogger logger, DoubleLinkedList list, int index, Node expected) {
         var actual = list.findByIndex(index);
         logger
-                .setArguments(new HashMap<>() {{
-                    put("DoubleLinkedList", String.valueOf(list));
-                    put("index", String.valueOf(index));
-                }})
-                .setExpected(String.valueOf(expected))
-                .setActual(String.valueOf(actual))
-                .setIsSuccess(Objects.equals(expected, actual));
+            .setArguments(new HashMap<>() {{
+                put("DoubleLinkedList", String.valueOf(list));
+                put("index", String.valueOf(index));
+            }})
+            .setExpected(String.valueOf(expected))
+            .setActual(String.valueOf(actual))
+            .setIsSuccess(Objects.equals(expected, actual));
     }
 
     private Map<String, Node> generateList() {

@@ -11,7 +11,7 @@ public class Runner extends Loggable {
 
     protected void runAllTasks() {
         var tasks = new TasksLoader().loadTasks();
-        tasks.sort((a, b) -> a.order > b.order ? 1 : -1);
+        tasks.sort((a, b) -> a.number > b.number ? 1 : -1);
 
 
         var longestName = 4; // "Task"
@@ -27,7 +27,7 @@ public class Runner extends Loggable {
             var logger = task.test.runSilently();
             loggers.put(task, logger);
 
-            longestName = Math.max(longestName, task.name.length());
+            longestName = Math.max(longestName, task.getName().length());
             longestSuccessNumber = Math.max(longestSuccessNumber, String.valueOf(logger.getSuccessCount()).length());
             longestFailedNumber = Math.max(longestFailedNumber, String.valueOf(logger.getFailedCount()).length());
 
@@ -46,10 +46,10 @@ public class Runner extends Loggable {
         for (var task : tasks) {
             var logger = loggers.get(task);
 
-            var successRate = 100 / (logger.getFailedCount() + logger.getSuccessCount()) * logger.getSuccessCount();
+            var successRate = Math.round(logger.getSuccessCount() / (float) (logger.getFailedCount() + logger.getSuccessCount()) * 100.0);
 
             sb
-                .append("| " + task.name + " ".repeat(longestName - task.name.length()) + " ")
+                .append("| " + task.getName() + " ".repeat(longestName - task.getName().length()) + " ")
                 .append("| " + COLOUR_SUCCESS + logger.getSuccessCount() + " ".repeat(longestSuccessNumber - String.valueOf(logger.getSuccessCount()).length()) + RESET_STYLE + " ")
                 .append("| " + COLOUR_ERROR + logger.getFailedCount() + " ".repeat(longestFailedNumber - String.valueOf(logger.getFailedCount()).length()) + RESET_STYLE + " ")
                 .append("| " + successRate + "%" + " ".repeat(longestSuccessRate - String.valueOf(successRate).length() - 1) + " |")
@@ -57,7 +57,7 @@ public class Runner extends Loggable {
         }
 
 
-        var totalSuccessRate = 100 / (totalFailed + totalSuccess) * totalSuccess;
+        var totalSuccessRate = Math.round(totalSuccess / (float) (totalFailed + totalSuccess) * 100.0);
         sb
             .append("|" + BACKGROUND_WHITE + " Total" + " ".repeat(longestName - 4) + RESET_STYLE)
             .append("|" + BACKGROUND_SUCCESS + " " + totalSuccess + " ".repeat(longestSuccessNumber - String.valueOf(totalSuccess).length() + 1) + RESET_STYLE)

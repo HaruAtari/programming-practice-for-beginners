@@ -37,11 +37,11 @@ final class Min_Test extends MethodTest {
         var actual = new Task().min(input);
 
         logger
-                .setArguments(new HashMap<>() {{
-                    put("list", Arrays.toString(input));
-                }})
-                .setIsSuccess(actual == expected)
-                .setActual(String.valueOf(actual))
-                .setExpected(String.valueOf(expected));
+            .setArguments(new HashMap<>() {{
+                put("list", Arrays.toString(input));
+            }})
+            .setIsSuccess(actual == expected)
+            .setActual(String.valueOf(actual))
+            .setExpected(String.valueOf(expected));
     }
 }

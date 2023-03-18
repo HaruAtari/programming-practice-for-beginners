@@ -1,6 +1,6 @@
 package com.haruatari.task14;
 
-final class Product {
+final public class Product {
     public final int amount;
     public final int price;
     public final String name;

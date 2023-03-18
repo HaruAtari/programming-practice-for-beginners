@@ -4,12 +4,14 @@ import com.haruatari._src.tests.ClassTest;
 
 public class Task {
     public final ClassTest test;
-    public final String name;
-    public final int order;
+    public final int number;
 
-    public Task(ClassTest test, String name, int order) {
+    public Task(ClassTest test, int number) {
         this.test = test;
-        this.name = name;
-        this.order = order;
+        this.number = number;
+    }
+
+    public String getName() {
+        return "Task " + number;
     }
 }

@@ -1,6 +1,6 @@
 package com.haruatari.task16;
 
-final class Post {
+final public class Post {
     public final int likesNumber;
     public final int repostsNumber;
     public final User author;

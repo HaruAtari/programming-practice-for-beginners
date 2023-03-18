@@ -1,6 +1,6 @@
 package com.haruatari.task9;
 
-final class Point {
+final public class Point {
     public final int x;
     public final int y;
 

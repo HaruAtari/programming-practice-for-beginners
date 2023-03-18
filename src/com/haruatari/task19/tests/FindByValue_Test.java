@@ -78,13 +78,13 @@ final class FindByValue_Test extends MethodTest {
     private void runCase(CaseLogger logger, DoubleLinkedList list, String value, Node expected) {
         var actual = list.findByValue(value);
         logger
-                .setArguments(new HashMap<>() {{
-                    put("DoubleLinkedList", String.valueOf(list));
-                    put("value", String.valueOf(value));
-                }})
-                .setExpected(String.valueOf(expected))
-                .setActual(String.valueOf(actual))
-                .setIsSuccess(Objects.equals(expected, actual));
+            .setArguments(new HashMap<>() {{
+                put("DoubleLinkedList", String.valueOf(list));
+                put("value", String.valueOf(value));
+            }})
+            .setExpected(String.valueOf(expected))
+            .setActual(String.valueOf(actual))
+            .setIsSuccess(Objects.equals(expected, actual));
     }
 
     private Map<String, Node> generateList() {

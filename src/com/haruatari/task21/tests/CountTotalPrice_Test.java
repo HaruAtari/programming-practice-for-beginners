@@ -76,15 +76,15 @@ public class CountTotalPrice_Test extends MethodTest {
 
     private void runCase(CaseLogger logger, Map<Dish, Integer> order, int expected) {
         logger
-                .setArguments(new HashMap<>() {{
-                    put("order", Helper.alignMap(order));
-                }});
+            .setArguments(new HashMap<>() {{
+                put("order", Helper.alignMap(order));
+            }});
 
         var actual = new Task().countTotalPrice(order);
 
         logger
-                .setExpected(String.valueOf(expected))
-                .setActual(String.valueOf(actual))
-                .setIsSuccess(expected == actual);
+            .setExpected(String.valueOf(expected))
+            .setActual(String.valueOf(actual))
+            .setIsSuccess(expected == actual);
     }
 }
