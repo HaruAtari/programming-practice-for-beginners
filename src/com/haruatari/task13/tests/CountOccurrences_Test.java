@@ -24,7 +24,7 @@ final class CountOccurrences_Test extends MethodTest {
         return new HashMap<>() {{
             put("The single occurrence in the beginning", logger -> runCase(logger, new int[]{10, 20, 30, 40, 50, 60, 70, 80, 90}, 10, 1));
             put("The single occurrence in the end", logger -> runCase(logger, new int[]{10, 20, 30, 40, 50, 60, 70, 80, 90}, 90, 1));
-            put("Several occurrences in with edged", logger -> runCase(logger, new int[]{10, 20, 30, 10, 60, 70, 10, 10, 90, 50, 10}, 10, 10));
+            put("Several occurrences in with edged", logger -> runCase(logger, new int[]{10, 20, 30, 10, 60, 70, 10, 10, 90, 50, 10}, 10, 5));
             put("Several occurrences in without edged", logger -> runCase(logger, new int[]{10, 20, 30, 20, 60, 40, 30, 10, 20, 50, 10}, 20, 3));
             put("An one-element list with occurrence", logger -> runCase(logger, new int[]{10}, 10, 1));
             put("An one-element list with no occurrences", logger -> runCase(logger, new int[]{10}, 20, 0));
