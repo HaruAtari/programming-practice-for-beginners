@@ -37,6 +37,7 @@ Each task is in the separate package (for example `org.haruatari.task10`) and ha
 | [Task 18](src/com/haruatari/task18) | Searching for the most popular posts on the social network. Part 3           | arrays, objects             |
 | [Task 23](src/com/haruatari/task23) | Merging lists of integers                                                    | collections                 |
 | [Task 24](src/com/haruatari/task24) | Folding of a list of integers                                                | collections                 |
+| [Task 25](src/com/haruatari/task25) | Folding of a nested list of integers                                         | collections                 |
 | [Task 20](src/com/haruatari/task20) | Visiting a restaurant with friends. Part 1                                   | collections, objects        |
 | [Task 21](src/com/haruatari/task21) | Visiting a restaurant with friends. Part 2                                   | collections, objects        |
 | [Task 22](src/com/haruatari/task22) | Visiting a restaurant with friends. Part 3                                   | collections, objects        |
