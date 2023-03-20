@@ -1,4 +1,4 @@
-package com.haruatari.task23.tests;
+package com.haruatari.task24.tests;
 
 import com.haruatari._src.loader.TaskTest;
 import com.haruatari._src.tests.ClassTest;
@@ -7,7 +7,7 @@ import com.haruatari._src.tests.MethodTest;
 import java.util.ArrayList;
 import java.util.List;
 
-@TaskTest(23)
+@TaskTest(24)
 public final class Test extends ClassTest {
     public static void main(String[] args) {
         new Test().run();
@@ -16,7 +16,7 @@ public final class Test extends ClassTest {
     @Override
     protected List<MethodTest> getMethodTests() {
         return new ArrayList<>() {{
-            add(new Merge_Test());
+            add(new Fold_Test());
         }};
     }
 }
