@@ -23,8 +23,16 @@ abstract public class Helper {
         return alignList(list, 0);
     }
 
+    public static String alignList(List<?> list, boolean singleLine) {
+        return alignList(list, 0, singleLine);
+    }
+
     public static String alignList(List<?> list, int level) {
-        if (list.size() <= 1) {
+        return alignList(list, level, false);
+    }
+
+    public static String alignList(List<?> list, int level, boolean singleLine) {
+        if (list.size() <= 1 || singleLine) {
             return "List(" +
                 list
                     .stream()
