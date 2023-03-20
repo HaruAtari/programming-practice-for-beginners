@@ -31,7 +31,7 @@ public class MethodLogger extends Loggable {
 
     @Override
     public String toString() {
-        var successRate = 100 / (failedCount + successCount) * successCount;
+        var successRate = Math.round(100.0 / (failedCount + successCount) * successCount);
         int longestValueLength = Math.max(
             Math.max(
                 String.valueOf(failedCount).length(),

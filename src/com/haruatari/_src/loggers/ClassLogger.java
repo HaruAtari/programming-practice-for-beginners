@@ -50,7 +50,7 @@ public class ClassLogger extends Loggable {
             .append("\n");
 
         for (var methodLogger : methodLoggers) {
-            var successRate = 100 / (methodLogger.getFailedCount() + methodLogger.getSuccessCount()) * methodLogger.getSuccessCount();
+            var successRate = Math.round(100.0 / (methodLogger.getFailedCount() + methodLogger.getSuccessCount()) * methodLogger.getSuccessCount());
 
             sb
                 .append("| " + methodLogger.getMethodName() + " ".repeat(longestName - methodLogger.getMethodName().length()) + " ")
@@ -61,7 +61,7 @@ public class ClassLogger extends Loggable {
         }
 
 
-        var totalSuccessRate = 100 / (totalFailed + totalSuccess) * totalSuccess;
+        var totalSuccessRate = Math.round(100.0 / (totalFailed + totalSuccess) * totalSuccess);
         sb
             .append("|" + BACKGROUND_WHITE + " Total" + " ".repeat(longestName - 4) + RESET_STYLE)
             .append("|" + BACKGROUND_SUCCESS + " " + totalSuccess + " ".repeat(longestSuccessNumber - String.valueOf(totalSuccess).length() + 1) + RESET_STYLE)
