@@ -8,7 +8,6 @@ import com.haruatari.task26.Task;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 import java.util.function.Consumer;
 
 final class FindIntersection_Test extends MethodTest {
@@ -47,6 +46,6 @@ final class FindIntersection_Test extends MethodTest {
             }})
             .setExpected(Helper.alignList(expected, true))
             .setActual(Helper.alignList(actual, true))
-            .setIsSuccess(Objects.equals(actual, expected));
+            .setIsSuccess(Helper.compareListsIgnoringOrder(actual, expected));
     }
 }

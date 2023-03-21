@@ -1,4 +1,4 @@
-# Searching for the lists' intersection
+# Searching for the intersection of two lists of integers
 
 You should implement the `List<Integer> Task.findIntersection(List<Integer> x, List<Integer> y)` method which takes two
 lists of integers and return a list of values that occur in both input lists.

@@ -5,7 +5,9 @@ import com.haruatari._src.loggers.CaseLogger;
 import com.haruatari._src.tests.MethodTest;
 import com.haruatari.task23.Task;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.function.Consumer;
 
 final class Merge_Test extends MethodTest {
@@ -35,11 +37,11 @@ final class Merge_Test extends MethodTest {
 
         logger
             .setArguments(new HashMap<>() {{
-                put("x", Helper.alignList(x,true));
-                put("y", Helper.alignList(y,true));
+                put("x", Helper.alignList(x, true));
+                put("y", Helper.alignList(y, true));
             }})
-            .setExpected(Helper.alignList(expected,true))
-            .setActual(Helper.alignList(actual,true))
-            .setIsSuccess(Objects.equals(expected, actual));
+            .setExpected(Helper.alignList(expected, true))
+            .setActual(Helper.alignList(actual, true))
+            .setIsSuccess(Helper.compareListsIgnoringOrder(expected, actual));
     }
 }

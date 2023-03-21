@@ -1,9 +1,6 @@
 package com.haruatari._src;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 abstract public class Helper {
@@ -86,9 +83,11 @@ abstract public class Helper {
     }
 
     public static <T extends Comparable> boolean compareListsIgnoringOrder(List<T> a, List<T> b) {
-        Collections.sort(a);
-        Collections.sort(b);
+        var mutableA = new ArrayList<>(a);
+        var mutableB = new ArrayList<>(b);
+        Collections.sort(mutableA);
+        Collections.sort(mutableB);
 
-        return a.equals(b);
+        return mutableA.equals(mutableB);
     }
 }
