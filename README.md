@@ -121,6 +121,7 @@ package. It will not show the detailed output, but only the summary:
 | [Task 23](src/com/haruatari/task23) | Merging lists of integers                                                    | collections                 |
 | [Task 24](src/com/haruatari/task24) | Folding of a list of integers                                                | collections                 |
 | [Task 25](src/com/haruatari/task25) | Folding of a nested list of integers                                         | collections                 |
+| [Task 26](src/com/haruatari/task26) | Searching for the lists' intersection                                        | collections                 |
 | [Task 20](src/com/haruatari/task20) | Visiting a restaurant with friends. Part 1                                   | collections, objects        |
 | [Task 21](src/com/haruatari/task21) | Visiting a restaurant with friends. Part 2                                   | collections, objects        |
 | [Task 22](src/com/haruatari/task22) | Visiting a restaurant with friends. Part 3                                   | collections, objects        |
