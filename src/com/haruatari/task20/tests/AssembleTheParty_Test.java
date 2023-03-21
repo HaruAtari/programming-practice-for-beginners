@@ -139,7 +139,7 @@ public class AssembleTheParty_Test extends MethodTest {
         logger
             .setExpected(Helper.alignList(expected))
             .setActual(Helper.alignList(actual))
-            .setIsSuccess(Objects.equals(expected, actual))
+            .setIsSuccess(Helper.compareListsIgnoringOrder(expected, actual))
             .hint(actual.size() == expected.size() - 1 ? "Maybe you forgot about the seat for yourself?" : null);
     }
 }

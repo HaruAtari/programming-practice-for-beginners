@@ -2,7 +2,7 @@ package com.haruatari.task20;
 
 import java.util.Objects;
 
-public final class Friend {
+public final class Friend implements Comparable<Friend> {
 
     public final String name;
     public final boolean isBusy;
@@ -25,5 +25,10 @@ public final class Friend {
     @Override
     public int hashCode() {
         return Objects.hash(name);
+    }
+
+    @Override
+    public int compareTo(Friend other) {
+        return name.compareTo(other.name);
     }
 }

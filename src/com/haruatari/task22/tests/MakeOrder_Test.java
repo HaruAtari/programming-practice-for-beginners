@@ -220,10 +220,7 @@ public class MakeOrder_Test extends MethodTest {
             var actualList = actual.get(key);
             var expectedList = expected.get(key);
 
-            actualList.sort(Comparator.comparing(a -> a.name));
-            expectedList.sort(Comparator.comparing(a -> a.name));
-
-            if (!actualList.equals(expectedList)) {
+            if (!Helper.compareListsIgnoringOrder(expectedList,actualList)) {
                 return false;
             }
         }
