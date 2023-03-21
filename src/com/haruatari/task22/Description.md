@@ -12,17 +12,17 @@ that dish.
 
 For example the method takes the next map (in pseudocode):
 
-```
-meat: [Fred, Viktor, Marina],
-tea: [Bob, Alice, Marina]
-```
-
-should return that value:
-
 ``` 
 Fred: [meat],
 Viktor: [meat],
 Marina: [meat, tea],
 Bob: [tea],
 Alice: [tea]
+```
+
+should return that value:
+
+```
+meat: [Fred, Viktor, Marina],
+tea: [Bob, Alice, Marina]
 ```
