@@ -51,21 +51,32 @@ abstract public class Helper {
         return alignMap(map, 0);
     }
 
-    public static String alignMap(Map<?, ?> map, int level) {
-        var result = new StringBuilder("Map(");
+    public static String alignMap(Map<?, ?> map, boolean singleLine) {
+        return alignMap(map, 0, singleLine);
+    }
 
-        if (map.size() <= 1) {
+    public static String alignMap(Map<?, ?> map, int level) {
+        return alignMap(map, level, false);
+    }
+
+    public static String alignMap(Map<?, ?> map, int level, boolean singleLine) {
+
+        if (map.size() <= 1 || singleLine) {
+            var result = new ArrayList<String>();
+
             for (var item : map.entrySet()) {
-                result
-                    .append(item.getKey())
-                    .append(": ")
-                    .append(item.getValue());
+                result.add(item.getKey() + ": " + item.getValue());
             }
 
-            return result
-                .append(")")
-                .toString();
+            return "Map(" +
+                result
+                    .stream()
+                    .map(String::valueOf)
+                    .collect(Collectors.joining("; ")) +
+                ")";
         }
+
+        var result = new StringBuilder("Map(");
 
         for (var item : map.entrySet()) {
             result
@@ -74,7 +85,6 @@ abstract public class Helper {
                 .append(item.getKey())
                 .append(" => ")
                 .append(item.getValue());
-
         }
 
         return result
