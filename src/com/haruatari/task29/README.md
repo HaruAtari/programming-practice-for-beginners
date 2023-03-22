@@ -12,8 +12,8 @@ You should implement the next methods:
 * `void reset(int x)` which set the current value to `0`
 * `int getValue()` which returns the current value
 
-You can (and probably should) create class's properties or extra methods. Do whatever you need to solve the task. But
-**do not** change the existing methods and their signatures.
-
-Pay attention: Each instance of the `Counter` class should store and change its own value and don't share it with other
-instances (do not use static properties).
+* You can (and probably should) create class's properties or extra methods. Do whatever you need to solve the task. But
+  **do not** change the existing methods and their signatures.
+* Each instance of the `Counter` class should store and change its own value and don't share it with other
+  instances (do not use static properties).
+* The `Counter` class has to have the default constructor without any arguments which will be used in test.
