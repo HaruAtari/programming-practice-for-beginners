@@ -35,30 +35,31 @@ final class Counter_Class extends CasesBatchTest {
     }
 
     private void severalGetValue(CaseLogger logger) {
+        logger.addFlowStep("Counter counter = new Counter();");
         var counter = new Counter();
 
-        logger.addFlowStep("add(5)");
+        logger.addFlowStep("counter.add(5);");
         counter.add(5);
 
-        logger.addFlowStep("add(7)");
+        logger.addFlowStep("counter.add(7);");
         counter.add(7);
 
-        logger.addFlowStep("subtract(2)");
+        logger.addFlowStep("counter.subtract(2);");
         counter.subtract(2);
 
-        logger.addFlowStep("value1 = getValue()");
+        logger.addFlowStep("int value1 = counter.getValue();");
         var actual1 = counter.getValue();
 
-        logger.addFlowStep("add(4)");
+        logger.addFlowStep("counter.add(4);");
         counter.add(4);
 
-        logger.addFlowStep("subtract(1)");
+        logger.addFlowStep("counter.subtract(1);");
         counter.subtract(1);
 
-        logger.addFlowStep("subtract(1)");
+        logger.addFlowStep("counter.subtract(1);");
         counter.subtract(1);
 
-        logger.addFlowStep("value2 = getValue()");
+        logger.addFlowStep("int value2 = counter.getValue();");
         var actual2 = counter.getValue();
 
         var expected1 = 10;
@@ -75,27 +76,28 @@ final class Counter_Class extends CasesBatchTest {
     }
 
     private void common(CaseLogger logger) {
+        logger.addFlowStep("Counter counter = new Counter();");
         var counter = new Counter();
 
-        logger.addFlowStep("add(5)");
+        logger.addFlowStep("counter.add(5);");
         counter.add(5);
 
-        logger.addFlowStep("add(7)");
+        logger.addFlowStep("counter.add(7);");
         counter.add(7);
 
-        logger.addFlowStep("subtract(2)");
+        logger.addFlowStep("counter.subtract(2);");
         counter.subtract(2);
 
-        logger.addFlowStep("add(4)");
+        logger.addFlowStep("counter.add(4);");
         counter.add(4);
 
-        logger.addFlowStep("subtract(1)");
+        logger.addFlowStep("counter.subtract(1);");
         counter.subtract(1);
 
-        logger.addFlowStep("subtract(1)");
+        logger.addFlowStep("counter.subtract(1);");
         counter.subtract(1);
 
-        logger.addFlowStep("getValue()");
+        logger.addFlowStep("int value = counter.getValue();");
         var actual = counter.getValue();
         var expected = 12;
 
@@ -106,27 +108,28 @@ final class Counter_Class extends CasesBatchTest {
     }
 
     private void reset(CaseLogger logger) {
+        logger.addFlowStep("Counter counter = new Counter();");
         var counter = new Counter();
 
-        logger.addFlowStep("add(5)");
+        logger.addFlowStep("counter.add(5);");
         counter.add(5);
 
-        logger.addFlowStep("add(7)");
+        logger.addFlowStep("counter.add(7);");
         counter.add(7);
 
-        logger.addFlowStep("subtract(2)");
+        logger.addFlowStep("counter.subtract(2);");
         counter.subtract(2);
 
-        logger.addFlowStep("reset()");
+        logger.addFlowStep("counter.reset();");
         counter.reset();
 
-        logger.addFlowStep("add(5)");
+        logger.addFlowStep("counter.add(5);");
         counter.add(5);
 
-        logger.addFlowStep("subtract(2)");
+        logger.addFlowStep("counter.subtract(2);");
         counter.subtract(2);
 
-        logger.addFlowStep("getValue()");
+        logger.addFlowStep("int value = counter.getValue();");
         var actual = counter.getValue();
         var expected = 3;
 
@@ -137,9 +140,10 @@ final class Counter_Class extends CasesBatchTest {
     }
 
     private void empty(CaseLogger logger) {
+        logger.addFlowStep("Counter counter = new Counter();");
         var counter = new Counter();
 
-        logger.addFlowStep("getValue()");
+        logger.addFlowStep("int value = counter.getValue();");
         var actual = counter.getValue();
         var expected = 0;
 
@@ -150,50 +154,55 @@ final class Counter_Class extends CasesBatchTest {
     }
 
     private void several(CaseLogger logger) {
+        logger.addFlowStep("Counter counter1 = new Counter();");
         var counter1 = new Counter();
+
+        logger.addFlowStep("Counter counter2 = new Counter();");
         var counter2 = new Counter();
+
+        logger.addFlowStep("Counter counter3 = new Counter();");
         var counter3 = new Counter();
 
-        logger.addFlowStep("counter1.add(3)");
+        logger.addFlowStep("counter1.add(3);");
         counter1.add(3);
 
-        logger.addFlowStep("counter2.add(3)");
+        logger.addFlowStep("counter2.add(3);");
         counter2.add(3);
 
-        logger.addFlowStep("counter3.add(3)");
+        logger.addFlowStep("counter3.add(3);");
         counter3.add(3);
 
-        logger.addFlowStep("counter1.add(5)");
+        logger.addFlowStep("counter1.add(5);");
         counter1.add(5);
 
-        logger.addFlowStep("counter2.subtract(7)");
+        logger.addFlowStep("counter2.subtract(7);");
         counter2.subtract(7);
 
-        logger.addFlowStep("counter3.reset()");
+        logger.addFlowStep("counter3.reset();");
         counter3.reset();
 
-        logger.addFlowStep("counter1.getValue()");
+        logger.addFlowStep("int value1 = counter1.getValue();");
         var actual1 = counter1.getValue();
         var expected1 = 8;
 
-        logger.addFlowStep("counter2.getValue()");
+        logger.addFlowStep("int value2 = counter2.getValue();");
         var actual2 = counter2.getValue();
         var expected2 = -4;
 
-        logger.addFlowStep("counter3.getValue()");
+        logger.addFlowStep("int value3 = counter3.getValue();");
         var actual3 = counter3.getValue();
         var expected3 = 0;
 
         logger
             .setExpected(
-                "\n  Counter1: " + expected1 + "\n" +
-                    "  Counter2: " + expected2 + "\n" +
-                    "  Counter3: " + expected3
+                "\n  value1: " + expected1 + "\n" +
+                    "  value2: " + expected2 + "\n" +
+                    "  value3: " + expected3
             )
             .setActual(
-                "\n  Counter1: " + actual1 + "\n" +
-                    "  Counter2: " + actual2 + "\n" +
-                    "  Counter3: " + actual3
+                "\n  value1: " + actual1 + "\n" +
+                    "  value2: " + actual2 + "\n" +
+                    "  value3: " + actual3
             )
             .setIsSuccess(actual1 == expected1 && actual2 == expected2 && actual3 == expected3);
     }
