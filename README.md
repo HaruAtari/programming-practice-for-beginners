@@ -2,7 +2,7 @@
 
 Each task is in the separate package (for example `org.haruatari.task10`) and has next files:
 
-- The `Description.md` markdown file with the information about what you need to do to complete the task.
+- The `README.md` markdown file with the information about what you need to do to complete the task.
 - Other java classes needed to solve the task. Usually it's a `Task` class, but not always. See the task's
   description for the full information.
 - The `tests` package which contains some tests to check your solution.
@@ -127,4 +127,5 @@ package. It will not show the detailed output, but only the summary:
 | [Task 20](src/com/haruatari/task20) | Visiting a restaurant with friends. Part 1                                   | collections, objects        |
 | [Task 21](src/com/haruatari/task21) | Visiting a restaurant with friends. Part 2                                   | collections, objects        |
 | [Task 22](src/com/haruatari/task22) | Visiting a restaurant with friends. Part 3                                   | collections, objects        |
-| [Task 29](src/com/haruatari/task29) | Summarizing of all integers inputted to the object                           | collections, oop            |
+| [Task 29](src/com/haruatari/task29) | Summarizing of all integers inputted to the object                           | oop                         |
+| [Task 30](src/com/haruatari/task30) | Factory of objects                                                           | oop                         |

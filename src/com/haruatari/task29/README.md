@@ -1,3 +1,5 @@
+# Summarizing of all integers inputted to the object  
+
 You have the `Counter` class which has four methods: `void add(int x)`, `void subtract(int x)`,`int getValue()`
 and `void reset()`. An instance of this class would store the value (init value is `0`). This value can be increased by
 calling the `add()` method and decreased by calling the `subtract()` method. The `getValue()` method returns the current
