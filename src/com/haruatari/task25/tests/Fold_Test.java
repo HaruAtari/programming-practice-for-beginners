@@ -2,7 +2,7 @@ package com.haruatari.task25.tests;
 
 import com.haruatari._src.Helper;
 import com.haruatari._src.loggers.CaseLogger;
-import com.haruatari._src.tests.MethodTest;
+import com.haruatari._src.tests.CasesBatchTest;
 import com.haruatari.task25.Task;
 
 import java.util.HashMap;
@@ -11,13 +11,13 @@ import java.util.Map;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
-final class Fold_Test extends MethodTest {
+final class Fold_Test extends CasesBatchTest {
     public static void main(String[] args) {
         new Fold_Test().run();
     }
 
     @Override
-    protected String getMethodName() {
+    protected String getCasesBatchName() {
         return "int fold(List<List<Integer>> list)";
     }
 

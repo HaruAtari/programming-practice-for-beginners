@@ -1,16 +1,16 @@
 package com.haruatari._src.loggers;
 
-public class MethodLogger extends Loggable {
-    private final String methodName;
+public class CasesBatchLogger extends Loggable {
+    private final String casesBatchName;
     private int successCount = 0;
     private int failedCount = 0;
 
-    public MethodLogger(String methodName) {
-        this.methodName = methodName;
+    public CasesBatchLogger(String casesBatchName) {
+        this.casesBatchName = casesBatchName;
     }
 
-    public String getMethodName() {
-        return methodName;
+    public String getCasesBatchName() {
+        return casesBatchName;
     }
 
     public int getSuccessCount() {

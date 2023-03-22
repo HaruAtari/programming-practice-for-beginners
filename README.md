@@ -127,3 +127,4 @@ package. It will not show the detailed output, but only the summary:
 | [Task 20](src/com/haruatari/task20) | Visiting a restaurant with friends. Part 1                                   | collections, objects        |
 | [Task 21](src/com/haruatari/task21) | Visiting a restaurant with friends. Part 2                                   | collections, objects        |
 | [Task 22](src/com/haruatari/task22) | Visiting a restaurant with friends. Part 3                                   | collections, objects        |
+| [Task 29](src/com/haruatari/task29) | Summarizing of all integers inputted to the object                           | collections, oop            |

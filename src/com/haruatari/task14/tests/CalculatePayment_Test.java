@@ -1,7 +1,7 @@
 package com.haruatari.task14.tests;
 
 import com.haruatari._src.loggers.CaseLogger;
-import com.haruatari._src.tests.MethodTest;
+import com.haruatari._src.tests.CasesBatchTest;
 import com.haruatari.task14.Cart;
 import com.haruatari.task14.Product;
 import com.haruatari.task14.Task;
@@ -10,13 +10,13 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Consumer;
 
-final class CalculatePayment_Test extends MethodTest {
+final class CalculatePayment_Test extends CasesBatchTest {
     public static void main(String[] args) {
         new CalculatePayment_Test().run();
     }
 
     @Override
-    protected String getMethodName() {
+    protected String getCasesBatchName() {
         return "int calculatePayment(Cart cart)";
     }
 

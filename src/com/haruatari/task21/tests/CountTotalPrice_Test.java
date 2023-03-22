@@ -2,7 +2,7 @@ package com.haruatari.task21.tests;
 
 import com.haruatari._src.Helper;
 import com.haruatari._src.loggers.CaseLogger;
-import com.haruatari._src.tests.MethodTest;
+import com.haruatari._src.tests.CasesBatchTest;
 import com.haruatari.task21.Dish;
 import com.haruatari.task21.Task;
 
@@ -10,13 +10,13 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Consumer;
 
-public class CountTotalPrice_Test extends MethodTest {
+public class CountTotalPrice_Test extends CasesBatchTest {
     public static void main(String[] args) {
         new CountTotalPrice_Test().run();
     }
 
     @Override
-    protected String getMethodName() {
+    protected String getCasesBatchName() {
         return "int countTotalPrice(Map<Dish, Integer> order)";
     }
 

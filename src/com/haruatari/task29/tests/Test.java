@@ -1,4 +1,4 @@
-package com.haruatari.task16.tests;
+package com.haruatari.task29.tests;
 
 import com.haruatari._src.tests.CasesBatchTest;
 import com.haruatari._src.tests.TaskTest;
@@ -6,7 +6,7 @@ import com.haruatari._src.tests.TaskTest;
 import java.util.ArrayList;
 import java.util.List;
 
-@com.haruatari._src.loader.TaskTest(16)
+@com.haruatari._src.loader.TaskTest(29)
 public final class Test extends TaskTest {
     public static void main(String[] args) {
         new Test().run();
@@ -15,7 +15,7 @@ public final class Test extends TaskTest {
     @Override
     protected List<CasesBatchTest> getMethodTests() {
         return new ArrayList<>() {{
-            add(new FindWinner_Test());
+            add(new Counter_Class());
         }};
     }
 }

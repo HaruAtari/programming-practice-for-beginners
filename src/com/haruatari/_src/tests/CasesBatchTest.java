@@ -1,13 +1,13 @@
 package com.haruatari._src.tests;
 
 import com.haruatari._src.loggers.CaseLogger;
-import com.haruatari._src.loggers.MethodLogger;
+import com.haruatari._src.loggers.CasesBatchLogger;
 
 import java.util.Map;
 import java.util.function.Consumer;
 
-abstract public class MethodTest extends Test {
-    abstract protected String getMethodName();
+abstract public class CasesBatchTest extends Test {
+    abstract protected String getCasesBatchName();
 
     abstract protected Map<String, Consumer<CaseLogger>> getCases();
 
@@ -15,21 +15,25 @@ abstract public class MethodTest extends Test {
         run(false, false);
     }
 
-    final public MethodLogger runPartially() {
+    final public CasesBatchLogger runPartially() {
         return run(true, false);
     }
 
-    final public MethodLogger runSilently() {
+    final public CasesBatchLogger runSilently() {
         return run(true, true);
     }
 
-    private MethodLogger run(boolean partially, boolean silently) {
-        var summary = new MethodLogger(getMethodName());
+    protected CaseLogger.Type getCaseLoggerType() {
+        return CaseLogger.Type.METHOD;
+    }
+
+    private CasesBatchLogger run(boolean partially, boolean silently) {
+        var summary = new CasesBatchLogger(getCasesBatchName());
 
         for (var set : getCases().entrySet()) {
             var logger = set.getKey().chars().allMatch(Character::isDigit)
-                ? new CaseLogger(getMethodName())
-                : new CaseLogger(getMethodName(), set.getKey());
+                ? new CaseLogger(getCasesBatchName())
+                : new CaseLogger(getCasesBatchName(), set.getKey(), getCaseLoggerType());
 
             set.getValue().accept(logger);
 

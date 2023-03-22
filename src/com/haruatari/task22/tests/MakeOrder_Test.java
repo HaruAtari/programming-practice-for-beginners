@@ -2,21 +2,24 @@ package com.haruatari.task22.tests;
 
 import com.haruatari._src.Helper;
 import com.haruatari._src.loggers.CaseLogger;
-import com.haruatari._src.tests.MethodTest;
+import com.haruatari._src.tests.CasesBatchTest;
 import com.haruatari.task22.Dish;
 import com.haruatari.task22.Friend;
 import com.haruatari.task22.Task;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.function.Consumer;
 
-public class MakeOrder_Test extends MethodTest {
+public class MakeOrder_Test extends CasesBatchTest {
     public static void main(String[] args) {
         new MakeOrder_Test().run();
     }
 
     @Override
-    protected String getMethodName() {
+    protected String getCasesBatchName() {
         return "Map<Dish, List<Friend>> makeOrder(Map<Friend, List<Dish>> friendsOrders)";
     }
 

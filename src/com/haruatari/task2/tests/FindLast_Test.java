@@ -1,7 +1,7 @@
 package com.haruatari.task2.tests;
 
 import com.haruatari._src.loggers.CaseLogger;
-import com.haruatari._src.tests.MethodTest;
+import com.haruatari._src.tests.CasesBatchTest;
 import com.haruatari.task2.Task;
 
 import java.util.Arrays;
@@ -9,13 +9,13 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Consumer;
 
-final class FindLast_Test extends MethodTest {
+final class FindLast_Test extends CasesBatchTest {
     public static void main(String[] args) {
         new FindLast_Test().run();
     }
 
     @Override
-    protected String getMethodName() {
+    protected String getCasesBatchName() {
         return "int findLast(int[] list, int value)";
     }
 

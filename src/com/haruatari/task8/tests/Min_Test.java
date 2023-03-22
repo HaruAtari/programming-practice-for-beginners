@@ -1,7 +1,7 @@
 package com.haruatari.task8.tests;
 
 import com.haruatari._src.loggers.CaseLogger;
-import com.haruatari._src.tests.MethodTest;
+import com.haruatari._src.tests.CasesBatchTest;
 import com.haruatari.task8.Task;
 
 import java.util.Arrays;
@@ -9,13 +9,13 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Consumer;
 
-final class Min_Test extends MethodTest {
+final class Min_Test extends CasesBatchTest {
     public static void main(String[] args) {
         new Min_Test().run();
     }
 
     @Override
-    protected String getMethodName() {
+    protected String getCasesBatchName() {
         return "int min(int[] list)";
     }
 

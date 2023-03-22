@@ -2,8 +2,8 @@ package com.haruatari._src;
 
 import com.haruatari._src.loader.Task;
 import com.haruatari._src.loader.TasksLoader;
-import com.haruatari._src.loggers.ClassLogger;
 import com.haruatari._src.loggers.Loggable;
+import com.haruatari._src.loggers.TaskLogger;
 
 import java.util.HashMap;
 
@@ -22,7 +22,7 @@ public class Runner extends Loggable {
         var totalSuccess = 0;
         var totalFailed = 0;
 
-        var loggers = new HashMap<Task, ClassLogger>();
+        var loggers = new HashMap<Task, TaskLogger>();
         for (var task : tasks) {
             var logger = task.test.runSilently();
             loggers.put(task, logger);

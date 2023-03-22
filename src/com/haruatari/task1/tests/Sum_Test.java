@@ -1,20 +1,20 @@
 package com.haruatari.task1.tests;
 
 import com.haruatari._src.loggers.CaseLogger;
-import com.haruatari._src.tests.MethodTest;
+import com.haruatari._src.tests.CasesBatchTest;
 import com.haruatari.task1.Task;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Consumer;
 
-final class Sum_Test extends MethodTest {
+final class Sum_Test extends CasesBatchTest {
     public static void main(String[] args) {
         new Sum_Test().run();
     }
 
     @Override
-    protected String getMethodName() {
+    protected String getCasesBatchName() {
         return "int sum(int x, int y)";
     }
 

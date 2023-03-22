@@ -2,20 +2,20 @@ package com.haruatari.task20.tests;
 
 import com.haruatari._src.Helper;
 import com.haruatari._src.loggers.CaseLogger;
-import com.haruatari._src.tests.MethodTest;
+import com.haruatari._src.tests.CasesBatchTest;
 import com.haruatari.task20.Friend;
 import com.haruatari.task20.Task;
 
 import java.util.*;
 import java.util.function.Consumer;
 
-public class AssembleTheParty_Test extends MethodTest {
+public class AssembleTheParty_Test extends CasesBatchTest {
     public static void main(String[] args) {
         new AssembleTheParty_Test().run();
     }
 
     @Override
-    protected String getMethodName() {
+    protected String getCasesBatchName() {
         return "List<Friend> assembleTheParty(List<Friend> friends, int bookedSeatsNumber)";
     }
 

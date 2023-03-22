@@ -2,7 +2,7 @@ package com.haruatari.task16.tests;
 
 import com.haruatari._src.Helper;
 import com.haruatari._src.loggers.CaseLogger;
-import com.haruatari._src.tests.MethodTest;
+import com.haruatari._src.tests.CasesBatchTest;
 import com.haruatari.task16.Post;
 import com.haruatari.task16.Task;
 import com.haruatari.task16.User;
@@ -12,13 +12,13 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.function.Consumer;
 
-final class FindWinner_Test extends MethodTest {
+final class FindWinner_Test extends CasesBatchTest {
     public static void main(String[] args) {
         new FindWinner_Test().run();
     }
 
     @Override
-    protected String getMethodName() {
+    protected String getCasesBatchName() {
         return "User findWinner(Post[] posts)";
     }
 

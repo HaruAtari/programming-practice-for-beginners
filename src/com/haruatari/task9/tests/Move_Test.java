@@ -1,7 +1,7 @@
 package com.haruatari.task9.tests;
 
 import com.haruatari._src.loggers.CaseLogger;
-import com.haruatari._src.tests.MethodTest;
+import com.haruatari._src.tests.CasesBatchTest;
 import com.haruatari.task9.Point;
 import com.haruatari.task9.Segment;
 import com.haruatari.task9.Task;
@@ -11,13 +11,13 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.function.Consumer;
 
-final class Move_Test extends MethodTest {
+final class Move_Test extends CasesBatchTest {
     public static void main(String[] args) {
         new Move_Test().run();
     }
 
     @Override
-    protected String getMethodName() {
+    protected String getCasesBatchName() {
         return "Point findMiddlePoint(Segment segment)";
     }
 

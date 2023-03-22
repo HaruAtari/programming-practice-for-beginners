@@ -1,6 +1,6 @@
 package com.haruatari._src.loader;
 
-import com.haruatari._src.tests.ClassTest;
+import com.haruatari._src.tests.TaskTest;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -31,12 +31,12 @@ public class TasksLoader {
             }
 
             for (var classItem : classes) {
-                TaskTest annotation = (TaskTest) classItem.getAnnotation(TaskTest.class);
+                com.haruatari._src.loader.TaskTest annotation = (com.haruatari._src.loader.TaskTest) classItem.getAnnotation(com.haruatari._src.loader.TaskTest.class);
 
                 if (annotation != null) {
                     try {
                         result.add(new Task(
-                            (ClassTest) classItem.getDeclaredConstructor().newInstance(),
+                            (TaskTest) classItem.getDeclaredConstructor().newInstance(),
                             annotation.value()
                         ));
                     } catch (InstantiationException e) {

@@ -3,12 +3,12 @@ package com.haruatari._src.loggers;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ClassLogger extends Loggable {
-    private List<MethodLogger> methodLoggers = new ArrayList<>();
+public class TaskLogger extends Loggable {
+    private List<CasesBatchLogger> methodLoggers = new ArrayList<>();
     private int successCount = 0;
     private int failedCount = 0;
 
-    public void addMethodLogger(MethodLogger methodLogger) {
+    public void addMethodLogger(CasesBatchLogger methodLogger) {
         methodLoggers.add(methodLogger);
         successCount += methodLogger.getSuccessCount();
         failedCount += methodLogger.getFailedCount();
@@ -33,7 +33,7 @@ public class ClassLogger extends Loggable {
         var totalFailed = 0;
 
         for (var methodLogger : methodLoggers) {
-            longestName = Math.max(longestName, methodLogger.getMethodName().length());
+            longestName = Math.max(longestName, methodLogger.getCasesBatchName().length());
             longestSuccessNumber = Math.max(longestSuccessNumber, String.valueOf(methodLogger.getSuccessCount()).length());
             longestFailedNumber = Math.max(longestFailedNumber, String.valueOf(methodLogger.getFailedCount()).length());
 
@@ -53,7 +53,7 @@ public class ClassLogger extends Loggable {
             var successRate = Math.round(100.0 / (methodLogger.getFailedCount() + methodLogger.getSuccessCount()) * methodLogger.getSuccessCount());
 
             sb
-                .append("| " + methodLogger.getMethodName() + " ".repeat(longestName - methodLogger.getMethodName().length()) + " ")
+                .append("| " + methodLogger.getCasesBatchName() + " ".repeat(longestName - methodLogger.getCasesBatchName().length()) + " ")
                 .append("| " + COLOUR_SUCCESS + methodLogger.getSuccessCount() + " ".repeat(longestSuccessNumber - String.valueOf(methodLogger.getSuccessCount()).length()) + RESET_STYLE + " ")
                 .append("| " + COLOUR_ERROR + methodLogger.getFailedCount() + " ".repeat(longestFailedNumber - String.valueOf(methodLogger.getFailedCount()).length()) + RESET_STYLE + " ")
                 .append("| " + successRate + "%" + " ".repeat(longestSuccessRate - String.valueOf(successRate).length() - 1) + " |")

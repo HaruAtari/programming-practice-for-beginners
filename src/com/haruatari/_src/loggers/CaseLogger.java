@@ -1,32 +1,62 @@
 package com.haruatari._src.loggers;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class CaseLogger extends Loggable {
-    private String methodName;
-    private String caseDescription;
+    private Type type;
+    private String name;
+    private String description;
     private Map<String, String> arguments = new HashMap();
     private boolean isSuccess = false;
     private String expected = null;
     private String actual = null;
     private String hint = null;
+    private List<String> flow = new ArrayList<>();
 
-    public CaseLogger(String methodName, String caseDescription) {
-        this.methodName = methodName;
-        this.caseDescription = caseDescription;
+    public enum Type {
+        METHOD,
+        CLASS;
+
+        public String getTitle() {
+            switch (this) {
+                case CLASS -> {
+                    return "Class";
+                }
+                case METHOD -> {
+                    return "Method";
+                }
+            }
+
+            return "-";
+        }
     }
 
+    public CaseLogger(String methodName, String caseDescription, Type type) {
+        this.name = methodName;
+        this.description = caseDescription;
+        this.type = type;
+    }
+
+    @Deprecated
+    public CaseLogger(String methodName, String caseDescription) {
+        this(methodName, caseDescription, Type.METHOD);
+    }
+
+    @Deprecated
     public CaseLogger(String methodName) {
-        this.methodName = methodName;
+        this(methodName, null, Type.METHOD);
     }
 
     @Override
     public String toString() {
         return new StringBuilder()
-            .append(methodNameToString())
-            .append(caseDescriptionToString())
+            .append(nameToString())
+            .append(descriptionToString())
             .append(argumentsToString())
+            .append(flowToString())
             .append(resultsToString())
             .toString();
     }
@@ -37,6 +67,12 @@ public class CaseLogger extends Loggable {
 
     public CaseLogger setArguments(Map<String, String> value) {
         arguments = value;
+
+        return this;
+    }
+
+    public CaseLogger addFlowStep(String step) {
+        flow.add(step);
 
         return this;
     }
@@ -65,31 +101,35 @@ public class CaseLogger extends Loggable {
         return this;
     }
 
-    public String getMethodName() {
-        return methodName;
+    public String getName() {
+        return name;
     }
 
-    private String methodNameToString() {
+    private String nameToString() {
         var sb = new StringBuilder();
         sb.append(separator);
-        sb.append(COLOUR_HIGHLIGHT + "Method: " + RESET_STYLE);
-        sb.append(methodName + "\n");
+        sb.append(COLOUR_HIGHLIGHT + type.getTitle() + ": " + RESET_STYLE);
+        sb.append(name + "\n");
         return sb.toString();
     }
 
-    private String caseDescriptionToString() {
-        if (caseDescription == null) {
+    private String descriptionToString() {
+        if (description == null) {
             return "\n";
         }
 
         var sb = new StringBuilder();
         sb.append(COLOUR_HIGHLIGHT + "Case: " + RESET_STYLE);
-        sb.append(caseDescription + "\n\n");
+        sb.append(description + "\n\n");
 
         return sb.toString();
     }
 
     private String argumentsToString() {
+        if (arguments.isEmpty()) {
+            return "";
+        }
+
         var sb = new StringBuilder();
 
         sb.append(COLOUR_HIGHLIGHT + "Arguments:" + RESET_STYLE + "\n");
@@ -97,6 +137,19 @@ public class CaseLogger extends Loggable {
             sb.append(entity.getKey() + ": " + entity.getValue() + "\n");
         }
         sb.append("\n");
+
+        return sb.toString();
+    }
+
+    private String flowToString() {
+        if (flow.isEmpty()) {
+            return "";
+        }
+        var sb = new StringBuilder();
+
+        sb.append(COLOUR_HIGHLIGHT + "Flow:" + RESET_STYLE + "\n");
+        sb.append(String.join("\n", flow));
+        sb.append("\n\n");
 
         return sb.toString();
     }

@@ -2,7 +2,7 @@ package com.haruatari.task28.tests;
 
 import com.haruatari._src.Helper;
 import com.haruatari._src.loggers.CaseLogger;
-import com.haruatari._src.tests.MethodTest;
+import com.haruatari._src.tests.CasesBatchTest;
 import com.haruatari.task28.Task;
 
 import java.util.Collections;
@@ -11,13 +11,13 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.function.Consumer;
 
-final class Pivot_Test extends MethodTest {
+final class Pivot_Test extends CasesBatchTest {
     public static void main(String[] args) {
         new Pivot_Test().run();
     }
 
     @Override
-    protected String getMethodName() {
+    protected String getCasesBatchName() {
         return "Map<Integer, String> Task.pivot(Map<String, Integer> map)";
     }
 

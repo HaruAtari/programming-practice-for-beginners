@@ -1,7 +1,7 @@
 package com.haruatari.task19.tests;
 
 import com.haruatari._src.loggers.CaseLogger;
-import com.haruatari._src.tests.MethodTest;
+import com.haruatari._src.tests.CasesBatchTest;
 import com.haruatari.task19.DoubleLinkedList;
 import com.haruatari.task19.Node;
 
@@ -10,13 +10,13 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.function.Consumer;
 
-final class FindByIndex_Test extends MethodTest {
+final class FindByIndex_Test extends CasesBatchTest {
     public static void main(String[] args) {
         new FindByIndex_Test().run();
     }
 
     @Override
-    protected String getMethodName() {
+    protected String getCasesBatchName() {
         return "Node finByIndex(int index)";
     }
 

@@ -2,7 +2,7 @@ package com.haruatari.task23.tests;
 
 import com.haruatari._src.Helper;
 import com.haruatari._src.loggers.CaseLogger;
-import com.haruatari._src.tests.MethodTest;
+import com.haruatari._src.tests.CasesBatchTest;
 import com.haruatari.task23.Task;
 
 import java.util.HashMap;
@@ -10,13 +10,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Consumer;
 
-final class Merge_Test extends MethodTest {
+final class Merge_Test extends CasesBatchTest {
     public static void main(String[] args) {
         new Merge_Test().run();
     }
 
     @Override
-    protected String getMethodName() {
+    protected String getCasesBatchName() {
         return "List<Integer> merge(List<Integer> x, List<Integer> y)";
     }
 
