@@ -113,6 +113,7 @@ package. It will not show the detailed output, but only the summary:
 | [Task 7](src/com/haruatari/task7)   | Zipping of arrays of integers                                                | arrays                      |
 | [Task 9](src/com/haruatari/task9)   | Searching for the middle of the segment on the coordinate plane              | algorithms                  |
 | [Task 31](src/com/haruatari/task31) | Calculating the distance between two points on teh coordinates plane         | algorithms                  |
+| [Task 32](src/com/haruatari/task32) | Calculating the total length of the broken line on the coordinate plane      | algorithms, oop             |
 | [Task 14](src/com/haruatari/task14) | Calculating of a total price for the shop cart                               | arrays, objects             |
 | [Task 15](src/com/haruatari/task15) | Calculating of a total price for the shop cart taking discounts into account | arrays, objects             |
 | [Task 19](src/com/haruatari/task19) | Searching in the Double Linked List                                          | objects                     |

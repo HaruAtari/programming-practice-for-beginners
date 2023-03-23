@@ -1,4 +1,4 @@
-# Calculating the distance between two points on teh coordinates plane
+# Calculating the distance between two points on the coordinates plane
 
 You should implement the `double Calculator.calculateDistance(Point point1, Point point2)` method which takes two points
 on the coordinates plane and return the shortest distance between them. You should find the formula for distance
