@@ -27,5 +27,5 @@ You should implement the `Messager` class which has all methods required for mes
 * `void Messenger.sendMessageToAllUsers(String message)` sends the specified message to all users.
 * `void Messenger.sendMessageToOnlineUsers(String message)` sends the specified message only to online users.
 * `void Messenger.sendMessageToUser(String message, User user)` sends the message only to specified user. It doesn't
-* matter is he/she online or offline. Pay attention: the method  **should not** send the message to the user if he/she
+* matter if he/she online or offline. Pay attention: the method  **should not** send the message to the user if he/she
   is not in the messenger.
