@@ -32,7 +32,7 @@ abstract public class CasesBatchTest extends Test {
 
         for (var set : getCases().entrySet()) {
             var logger = set.getKey().chars().allMatch(Character::isDigit)
-                ? new CaseLogger(getCasesBatchName())
+                ? new CaseLogger(getCasesBatchName(), null, getCaseLoggerType())
                 : new CaseLogger(getCasesBatchName(), set.getKey(), getCaseLoggerType());
 
             set.getValue().accept(logger);

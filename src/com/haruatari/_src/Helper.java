@@ -100,4 +100,9 @@ abstract public class Helper {
 
         return mutableA.equals(mutableB);
     }
+
+    public static int randomInt(int min, int max) {
+        Random ran = new Random();
+        return ran.nextInt(max - min + 1) + min;
+    }
 }

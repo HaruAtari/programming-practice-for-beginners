@@ -1,4 +1,4 @@
-# Simple messenger. Part 1
+# Simple messenger
 
 You are going to write the simple messenger. Nothing serious just for you and your friends.
 

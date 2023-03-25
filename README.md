@@ -131,4 +131,5 @@ package. It will not show the detailed output, but only the summary:
 | [Task 22](src/com/haruatari/task22) | Visiting a restaurant with friends. Part 3                                   | collections, objects        |
 | [Task 29](src/com/haruatari/task29) | Summarizing of all integers inputted to the object                           | oop                         |
 | [Task 30](src/com/haruatari/task30) | Factory of objects                                                           | oop                         |
-| [Task 33](src/com/haruatari/task33) | Simple messenger. Part 1                                                     | oop                         |
+| [Task 33](src/com/haruatari/task33) | Simple messenger                                                             | oop                         |
+| [Task 34](src/com/haruatari/task33) | Changing object's behaviour by inheritance                                   | oop                         |

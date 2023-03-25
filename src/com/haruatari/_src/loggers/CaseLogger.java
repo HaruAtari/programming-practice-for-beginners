@@ -15,9 +15,11 @@ public class CaseLogger extends Loggable {
     private String actual = null;
     private String hint = null;
     private List<String> flow = new ArrayList<>();
+    private boolean showResultBlock = false;
 
     public enum Type {
         METHOD,
+        STEP,
         CLASS;
 
         public String getTitle() {
@@ -27,6 +29,9 @@ public class CaseLogger extends Loggable {
                 }
                 case METHOD -> {
                     return "Method";
+                }
+                case STEP -> {
+                    return "Step";
                 }
             }
 
@@ -85,14 +90,34 @@ public class CaseLogger extends Loggable {
 
     public CaseLogger setExpected(String value) {
         expected = value;
+        showResultBlock = true;
 
         return this;
     }
 
+    public CaseLogger setExpected(Map<String, String> value) {
+        StringBuilder result = new StringBuilder();
+        for (var entry : value.entrySet()) {
+            result.append("\n  ").append(entry.getKey()).append(": ").append(entry.getValue());
+        }
+
+        return setExpected(result.toString());
+    }
+
     public CaseLogger setActual(String value) {
         actual = value;
+        showResultBlock = true;
 
         return this;
+    }
+
+    public CaseLogger setActual(Map<String, String> value) {
+        StringBuilder result = new StringBuilder();
+        for (var entry : value.entrySet()) {
+            result.append("\n  ").append(entry.getKey()).append(": ").append(entry.getValue());
+        }
+
+        return setActual(result.toString());
     }
 
     public CaseLogger hint(String value) {
@@ -157,8 +182,10 @@ public class CaseLogger extends Loggable {
     private String resultsToString() {
         var sb = new StringBuilder();
         sb.append(COLOUR_HIGHLIGHT + "Result:" + RESET_STYLE + "\n");
-        sb.append("Expected: " + expected + "\n");
-        sb.append("Actual: " + actual + "\n");
+        if (showResultBlock) {
+            sb.append("Expected: " + expected + "\n");
+            sb.append("Actual: " + actual + "\n");
+        }
         sb.append("Summary: ");
 
         if (isSuccess) {
