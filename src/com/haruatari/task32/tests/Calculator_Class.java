@@ -73,8 +73,14 @@ final class Calculator_Class extends CasesBatchTest {
             Math.abs(Math.abs(expected2) - Math.abs(actual2)) < PRECIOUS;
 
         logger
-            .setExpected("\n  length1: " + formatter.format(expected1) + "\n  length: " + formatter.format(expected2))
-            .setActual("\n  length1: " + formatter.format(actual1) + "\n  length: " + formatter.format(actual2))
+            .setExpected(new HashMap<>(){{
+                put("length1",String.valueOf(expected1));
+                put("length2",String.valueOf(expected2));
+            }})
+            .setActual(new HashMap<>(){{
+                put("length1",String.valueOf(actual1));
+                put("length2",String.valueOf(actual2));
+            }})
             .setIsSuccess(isSuccess);
     }
 

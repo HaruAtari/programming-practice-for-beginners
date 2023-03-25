@@ -86,8 +86,14 @@ public class GetUsers_Flow extends CasesBatchTest {
         var expectedOffline = List.of(marina);
 
         logger
-            .setExpected("\n  onlineUsers: " + Helper.alignList(expectedOnline, true) + "\n  offlineUsers: " + Helper.alignList(expectedOffline, true))
-            .setActual("\n  onlineUsers: " + Helper.alignList(actualOnline, true) + "\n  offlineUsers: " + Helper.alignList(actualOffline, true))
+            .setExpected(new HashMap<>(){{
+                put("onlineUsers",Helper.alignList(expectedOnline, true));
+                put("offlineUsers",Helper.alignList(expectedOffline, true));
+            }})
+            .setActual(new HashMap<>(){{
+                put("onlineUsers",Helper.alignList(actualOnline, true));
+                put("offlineUsers",Helper.alignList(actualOffline, true));
+            }})
             .setIsSuccess(Helper.compareListsIgnoringOrder(actualOffline, expectedOffline) && Helper.compareListsIgnoringOrder(actualOnline, expectedOnline));
     }
 
@@ -105,8 +111,14 @@ public class GetUsers_Flow extends CasesBatchTest {
         List<User> expectedOffline = Collections.emptyList();
 
         logger
-            .setExpected("\n  onlineUsers: " + Helper.alignList(expectedOnline, true) + "\n  offlineUsers: " + Helper.alignList(expectedOffline, true))
-            .setActual("\n  onlineUsers: " + Helper.alignList(actualOnline, true) + "\n  offlineUsers: " + Helper.alignList(actualOffline, true))
+            .setExpected(new HashMap<>(){{
+                put("onlineUsers",Helper.alignList(expectedOnline, true));
+                put("offlineUsers",Helper.alignList(expectedOffline, true));
+            }})
+            .setActual(new HashMap<>(){{
+                put("onlineUsers",Helper.alignList(actualOnline, true));
+                put("offlineUsers",Helper.alignList(actualOffline, true));
+            }})
             .setIsSuccess(Helper.compareListsIgnoringOrder(actualOffline, expectedOffline) && Helper.compareListsIgnoringOrder(actualOnline, expectedOnline));
 
     }

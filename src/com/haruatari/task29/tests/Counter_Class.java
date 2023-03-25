@@ -66,8 +66,14 @@ final class Counter_Class extends CasesBatchTest {
         var expected2 = 12;
 
         logger
-            .setExpected("\n  value1: " + expected1 + "\n  value2: " + expected2)
-            .setActual("\n  value1: " + actual1 + "\n  value2: " + actual2)
+            .setExpected(new HashMap<>(){{
+                put("value1",String.valueOf(expected1));
+                put("value2",String.valueOf(expected2));
+            }})
+            .setActual(new HashMap<>(){{
+                put("value1",String.valueOf(actual1));
+                put("value2",String.valueOf(actual2));
+            }})
             .setIsSuccess(actual1 == expected1 && actual2 == expected2);
 
         if (actual2 == expected2 - expected1) {
@@ -194,16 +200,16 @@ final class Counter_Class extends CasesBatchTest {
         var expected3 = 0;
 
         logger
-            .setExpected(
-                "\n  value1: " + expected1 + "\n" +
-                    "  value2: " + expected2 + "\n" +
-                    "  value3: " + expected3
-            )
-            .setActual(
-                "\n  value1: " + actual1 + "\n" +
-                    "  value2: " + actual2 + "\n" +
-                    "  value3: " + actual3
-            )
+            .setExpected(new HashMap<>(){{
+                put("value1",String.valueOf(expected1));
+                put("value2",String.valueOf(expected2));
+                put("value3",String.valueOf(expected3));
+            }})
+            .setActual(new HashMap<>(){{
+                put("value1",String.valueOf(actual1));
+                put("value2",String.valueOf(actual2));
+                put("value3",String.valueOf(actual3));
+            }})
             .setIsSuccess(actual1 == expected1 && actual2 == expected2 && actual3 == expected3);
     }
 }

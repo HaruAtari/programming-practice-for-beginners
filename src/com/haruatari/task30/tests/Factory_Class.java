@@ -89,8 +89,14 @@ final class Factory_Class extends CasesBatchTest {
         var expected2 = new Node(50, "Name 2", true);
 
         logger
-            .setExpected("\n  node1: " + expected1 + "\n  node2: " + expected2)
-            .setActual("\n  node1: " + actual1 + "\n  node2: " + actual1)
+            .setExpected(new HashMap<>(){{
+                put("node1",String.valueOf(expected1));
+                put("node2",String.valueOf(expected2));
+            }})
+            .setActual(new HashMap<>(){{
+                put("node1",String.valueOf(actual1));
+                put("node2",String.valueOf(actual2));
+            }})
             .setIsSuccess(Objects.equals(expected1, actual1) && Objects.equals(expected2, actual2))
             .hint("Calling of the build() method should not reset the factory state");
     }
@@ -165,8 +171,14 @@ final class Factory_Class extends CasesBatchTest {
         var expected2 = new Node(10, "Name 2", true);
 
         logger
-            .setExpected("\n  node1: " + expected1 + "\n  node2: " + expected2)
-            .setActual("\n  node1: " + actual1 + "\n  node2: " + actual1)
+            .setExpected(new HashMap<>(){{
+                put("node1",String.valueOf(expected1));
+                put("node2",String.valueOf(expected2));
+            }})
+            .setActual(new HashMap<>(){{
+                put("node1",String.valueOf(actual1));
+                put("node2",String.valueOf(actual2));
+            }})
             .setIsSuccess(Objects.equals(expected1, actual1) && Objects.equals(expected2, actual2))
             .hint("Each instance of the Factory should store its own values");
     }

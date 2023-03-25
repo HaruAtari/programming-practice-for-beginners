@@ -81,8 +81,14 @@ public class CountUsers_Flow extends CasesBatchTest {
         var expectedOnline = 3;
 
         logger
-            .setExpected("\n  countAll: " + expectedAll + "\n  countOnline: " + expectedOnline)
-            .setActual("\n  countAll: " + actualAll + "\n  countOnline: " + actualOnline)
+            .setExpected(new HashMap<>(){{
+                put("countAll",String.valueOf(expectedAll));
+                put("countOnline",String.valueOf(expectedOnline));
+            }})
+            .setActual(new HashMap<>(){{
+                put("countAll",String.valueOf(actualAll));
+                put("countOnline",String.valueOf(actualOnline));
+            }})
             .setIsSuccess(expectedAll == actualAll && expectedOnline == actualOnline);
     }
 
@@ -133,8 +139,14 @@ public class CountUsers_Flow extends CasesBatchTest {
         var expectedOnline = 2;
 
         logger
-            .setExpected("\n  countAll: " + expectedAll + "\n  countOnline: " + expectedOnline)
-            .setActual("\n  countAll: " + actualAll + "\n  countOnline: " + actualOnline)
+            .setExpected(new HashMap<>(){{
+                put("countAll",String.valueOf(expectedAll));
+                put("countOnline",String.valueOf(expectedOnline));
+            }})
+            .setActual(new HashMap<>(){{
+                put("countAll",String.valueOf(actualAll));
+                put("countOnline",String.valueOf(actualOnline));
+            }})
             .setIsSuccess(expectedAll == actualAll && expectedOnline == actualOnline);
     }
 
@@ -152,8 +164,14 @@ public class CountUsers_Flow extends CasesBatchTest {
         var expectedOnline = 0;
 
         logger
-            .setExpected("\n  countAll: " + expectedAll + "\n  countOnline: " + expectedOnline)
-            .setActual("\n  countAll: " + actualAll + "\n  countOnline: " + actualOnline)
+            .setExpected(new HashMap<>(){{
+                put("countAll",String.valueOf(expectedAll));
+                put("countOnline",String.valueOf(expectedOnline));
+            }})
+            .setActual(new HashMap<>(){{
+                put("countAll",String.valueOf(actualAll));
+                put("countOnline",String.valueOf(actualOnline));
+            }})
             .setIsSuccess(expectedAll == actualAll && expectedOnline == actualOnline);
     }
 }
