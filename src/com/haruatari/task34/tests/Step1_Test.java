@@ -25,7 +25,6 @@ public class Step1_Test extends CasesBatchTest {
         return CaseLogger.Type.STEP;
     }
 
-
     @Override
     protected Map<String, Consumer<CaseLogger>> getCases() {
         return new HashMap<>() {{

@@ -70,6 +70,12 @@ public class CaseLogger extends Loggable {
         return isSuccess;
     }
 
+    public CaseLogger setCaseDescription(String name) {
+        this.description = name;
+
+        return this;
+    }
+
     public CaseLogger setArguments(Map<String, String> value) {
         arguments = value;
 
