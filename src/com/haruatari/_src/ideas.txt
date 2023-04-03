@@ -5,5 +5,4 @@
 - share data between instances with static params/methods
 - files reading/writing
 - streams/readers/writers
-- methods overwriting to change behavior in descendants
-- white logic in parent class using overwritten methods from children
+- Levenshtein value calculating
